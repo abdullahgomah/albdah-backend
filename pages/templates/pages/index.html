@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    مكتب البداح للعقارات | الصفحة الرئيسية
+{% endblock title %}
+    
+
+
+{% block stylesheets %}
+    
+    
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+  <style>
+
+
+    .swiper {
+        min-width: 100%; 
+        height: 100%;
+      }
+  
+      .swiper-slide {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content !important;
+      }
+  
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  </style>
+{% endblock stylesheets %}
+    
+
+
+
+{% block content %}
+    
+    
+
+
+    <main>
+        <div class="container">
+            <div class="intro">
+                <h1 class="intro__title">البداح ... البداح حلِّك بحِلِّك وترحالك </h1>
+                <p>
+                    تجربة آمنة تقدمها لكم مكاتب البداح للعقارات من خلال تقديم أفضل الخدمات والحلول التسويقية
+                </p>
+            </div>
+            <div class="cta">
+                <a href="#" class="btn btn-solid-success">ابحث عن عقار</a>
+                <a href="#" class="btn btn-solid-success">بحث بالخريطة</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="property_type">
+        <div class="container">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+                
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" class="btn btn-solid">شقق للاإيجار</a>
+                    </div>
+                </div>
+                <!-- <div class="swiper-pagination"></div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="property_list">
+        <div class="container">
+
+            <div class="grid property_grid">
+
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                        </h4>
+                        <p class="property__price">34000 ريال / سنوي</p>
+                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+                            مكيفات اسبليت.
+                            3 دورات مياه +غرفة غسالة.
+                            </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                </div>
+
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                        </h4>
+                        <p class="property__price">34000 ريال / سنوي</p>
+                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+                            مكيفات اسبليت.
+                            3 دورات مياه +غرفة غسالة.
+                            </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                </div>
+
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                        </h4>
+                        <p class="property__price">34000 ريال / سنوي</p>
+                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+                            مكيفات اسبليت.
+                            3 دورات مياه +غرفة غسالة.
+                            </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                </div>
+
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                        </h4>
+                        <p class="property__price">34000 ريال / سنوي</p>
+
+                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+                            مكيفات اسبليت.
+                            3 دورات مياه +غرفة غسالة.
+                            سخانات فورية.
+                            مطبخ خشبي مودرن.
+                            شاورات زجاجية.
+                            نوافذ مع شترات كهربائية.
+
+                            </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                </div>
+
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                        </h4>
+                        <p class="property__price">34000 ريال / سنوي</p>
+
+                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+                            مكيفات اسبليت.
+                            3 دورات مياه +غرفة غسالة.
+                            سخانات فورية.
+                            مطبخ خشبي مودرن.
+                            شاورات زجاجية.
+                            نوافذ مع شترات كهربائية.
+
+                            </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    {% endblock content %}
+
