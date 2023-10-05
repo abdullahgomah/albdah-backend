@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load i18n %}
+
+{% block title %}{% trans "تسجيل دخول" %}{% endblock %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="{% static 'css/users/main.css' %}">
+<style>
+
+
+  .form-heading {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
+  
+  .form-heading a {
+    height: fit-content;
+  }
+  
+  form .fields label {
+    display: none;
+  }
+
+  .cta a {
+    display: block;
+    margin-top: .5rem;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .login-container form {
+    width: 500px; 
+    max-width: 90%;
+  }
+
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+
+<!-- <h1>{% trans "Sign In" %}</h1> -->
+
+<div class="login-container">
+
+
+  <form class="login signup-form" method="POST" action="{% url 'account_login' %}">
+
+
+      <div class="form-heading">
+        <h2>تسجيل دخول</h2>
+        <a href="{{signup_url}}" class="btn btn-solid">إنشاء حساب</a>
+      </div>
+      
+      {% csrf_token %}
+      <div class="fields">
+        {{form.as_p}}
+      </div>
+
+
+      <br>
+
+      <!-- <div class="fields"> -->
+      <!-- </div> -->
+
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <!-- <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a> -->
+      <!-- <br> -->
+      <!-- <button class="primaryAction btn btn-solid-dark" type="submit">{% trans "Sign In" %}</button> -->
+      <div class="cta">
+        <button class="primaryAction btn btn-solid" type="submit">تسجيل دخول</button>
+        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">هل نسيت كلمة السر؟</a>
+      </div>
+
+      {% if messages %}
+      <div>
+        <!-- <strong>Messages:</strong> -->
+        <ul>
+          {% for message in messages %}
+          <li>{{message}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+
+  </form>
+<!-- 
+  {% if messages %}
+  <div>
+    <strong>Messages:</strong
+    <ul>
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %} -->
+
+</div>
+
+
+<script>
+  let formInputs = document.querySelectorAll('.fields input')
+  formInputs.forEach((e) => {
+    e.classList.add('form-control') 
+  })
+  formInputs[2].style.display='none'
+  formInputs[2].previousElementSibling.style.display='none'
+
+
+  
+  document.querySelector('#id_login').setAttribute('placeholder', 'اسم المستخدم') 
+  document.querySelector('#id_password').setAttribute('placeholder', 'كلمة السر') 
+  
+    
+</script>
+
+{% endblock %}

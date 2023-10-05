@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load i18n %}
+
+{% block title %}{% trans "تسجيل خروج" %}{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/users/main.css' %}">
+{% endblock stylesheets %}
+    
+
+{% block content %}
+<style>
+</style>
+<div class="container" >
+
+    <h1>{% trans "تسجيل خروج" %}</h1>
+
+    <p>{% trans 'هل أنت متأكد من تسجيل الخروج؟' %}</p>
+
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <br>
+        <button type="submit" class="btn btn-solid ">{% trans 'تسجيل خروج' %}</button>
+</div>
+
+</form>
+
+
+{% endblock %}

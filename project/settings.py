@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms', 
+    'crispy_bootstrap4',
     'geoposition', 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'pages', 
     'maps', 
+    'users', 
     'property', 
 ]
 
@@ -60,6 +66,20 @@ GEOPOSITION_MAP_OPTIONS = {
     'isDjangoAdmin': True
 }
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+# LOGIN / LOGOUT URLS 
+LOGIN_URL = '/accounts/login'
+
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL =True
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 
 
@@ -74,6 +94,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'

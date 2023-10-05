@@ -41,8 +41,15 @@
             </nav>
             <nav>
                 <ul>
+                    
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'accounts:profile' %}" class="btn btn-solid">الملف الشخصي</a></li>
+                    <li><a href="{% url 'account_logout' %}" class="btn btn-outline">تسجيل خروج</a></li>
+                    {% else %}
                     <li><a href="#" class="btn btn-solid">إضافة عقار</a></li>
-                    <li><a href="#" class="btn btn-outline">تسجيل دخول</a></li>
+                    <li><a href="{% url 'account_login' %}" class="btn btn-outline">تسجيل دخول</a></li>
+                    {% endif %}
+
                 </ul>
             </nav>
             <a href="#" id="burger-menu">
