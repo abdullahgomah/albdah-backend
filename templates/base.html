@@ -65,7 +65,7 @@
                 <div class="footer-logo-container">
                     <img src="{% static 'imgs/logo-transparent.png' %}" alt="">
                 </div>
-                <div class="quick-links">
+                <!-- <div class="quick-links">
                     <h4>روابط سريعة</h4>
 
                     <ul>
@@ -75,7 +75,7 @@
                         <li><a href="#" class="list-item">تواصل معنا</a></li>
                         <li><a href="#" class="list-item">من نحن</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="social-media">
                     <h4>تابعنا على</h4>
 
@@ -109,7 +109,20 @@
         </div>
     </footer>
 
-    <script src="{% static 'js/pages/app.js' %}"></script>
+
+
+    <script>
+        burgerMenu = document.querySelector('#burger-menu')
+        let swiperMenu = document.querySelector('.mySwiper'); 
+
+
+        burgerMenu.addEventListener('click', () => {
+          document.querySelectorAll('header .container nav').forEach((nav) => {
+            nav.classList.toggle('show');
+          })
+          swiperMenu.classList.toggle('hide'); 
+        })
+    </script>
 
 </body>
 </html>

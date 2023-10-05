@@ -10,10 +10,3 @@ var swiper = new Swiper(".mySwiper", {
 
 // Make navbar responsive 
 
-burgerMenu = document.querySelector('#burger-menu')
-
-burgerMenu.addEventListener('click', () => {
-  document.querySelectorAll('header .container nav').forEach((nav) => {
-    nav.classList.toggle('show') 
-  })
-})

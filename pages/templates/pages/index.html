@@ -9,7 +9,7 @@
 
 
 {% block stylesheets %}
-    
+    <!-- <link rel="stylesheet" href="{% static 'css/pages/main.css' %}"> -->
     
     <link
     rel="stylesheet"
@@ -32,6 +32,9 @@
         justify-content: center;
         align-items: center;
         width: fit-content !important;
+      }
+      .swiper-wrapper {
+        column-gap: 1rem;
       }
   
       .swiper-slide img {
@@ -61,7 +64,7 @@
             </div>
             <div class="cta">
                 <a href="#" class="btn btn-solid-success">ابحث عن عقار</a>
-                <a href="#" class="btn btn-solid-success">بحث بالخريطة</a>
+                <a href="{% url 'maps:search-with-map' %}" class="btn btn-solid-success">بحث بالخريطة</a>
             </div>
         </div>
     </main>
@@ -133,104 +136,37 @@
         <div class="container">
 
             <div class="grid property_grid">
-
+                
+                {% for property in apartments_rent %}
+                    
                 <div class="item property">
                     <div class="property__info">
                         <h4 class="property__title">
-                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
+                            <a href="#">{{property.title}}</a>
                         </h4>
-                        <p class="property__price">34000 ريال / سنوي</p>
-                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-                            مكيفات اسبليت.
-                            3 دورات مياه +غرفة غسالة.
-                            </p>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
                     </div>
                     <div class="property__cover_img">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
                     </div>
                 </div>
+                {% endfor %}
+                    
 
-                <div class="item property">
-                    <div class="property__info">
-                        <h4 class="property__title">
-                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
-                        </h4>
-                        <p class="property__price">34000 ريال / سنوي</p>
-                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-                            مكيفات اسبليت.
-                            3 دورات مياه +غرفة غسالة.
-                            </p>
-                    </div>
-                    <div class="property__cover_img">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
-                    </div>
-                </div>
-
-                <div class="item property">
-                    <div class="property__info">
-                        <h4 class="property__title">
-                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
-                        </h4>
-                        <p class="property__price">34000 ريال / سنوي</p>
-                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-                            مكيفات اسبليت.
-                            3 دورات مياه +غرفة غسالة.
-                            </p>
-                    </div>
-                    <div class="property__cover_img">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
-                    </div>
-                </div>
-
-                <div class="item property">
-                    <div class="property__info">
-                        <h4 class="property__title">
-                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
-                        </h4>
-                        <p class="property__price">34000 ريال / سنوي</p>
-
-                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-                            مكيفات اسبليت.
-                            3 دورات مياه +غرفة غسالة.
-                            سخانات فورية.
-                            مطبخ خشبي مودرن.
-                            شاورات زجاجية.
-                            نوافذ مع شترات كهربائية.
-
-                            </p>
-                    </div>
-                    <div class="property__cover_img">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
-                    </div>
-                </div>
-
-                <div class="item property">
-                    <div class="property__info">
-                        <h4 class="property__title">
-                            <a href="#">شقة للإيجار في شارع أبي سعد التيمي، الياقوت جدة</a>
-                        </h4>
-                        <p class="property__price">34000 ريال / سنوي</p>
-
-                        <p class="property__description">شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-                            مكيفات اسبليت.
-                            3 دورات مياه +غرفة غسالة.
-                            سخانات فورية.
-                            مطبخ خشبي مودرن.
-                            شاورات زجاجية.
-                            نوافذ مع شترات كهربائية.
-
-                            </p>
-                    </div>
-                    <div class="property__cover_img">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
-                    </div>
-                </div>
 
 
             </div>
 
         </div>
     </section>
+
+    <script src="{% static 'js/pages/app.js' %}"></script>
+
 
     {% endblock content %}
 

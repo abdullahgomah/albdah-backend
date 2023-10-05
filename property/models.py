@@ -28,6 +28,8 @@ INTERFACE_CHOICES = [
 class ApartmentRent(models.Model): 
     position = GeopositionField() 
 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
     width = models.FloatField(verbose_name="العرض (متر)") 
@@ -80,16 +82,15 @@ class ApartmentRent(models.Model):
 
     private_enternace = models.BooleanField(default=False, verbose_name="مدخل خاص")
 
-    
-
-
+    def __str__(self): 
+        return self.title 
 
 class ApartmentRentImage(models.Model):
-    ad = models.ForeignKey(ApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
+    ad = models.ForeignKey(ApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان", related_name='imgs') 
     img = models.ImageField(upload_to="rent/apartment/")
     
     def __str__(self):
-        return " "
+        return str(self.ad ) 
 
 
 

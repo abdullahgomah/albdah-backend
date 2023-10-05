@@ -1,9 +1,18 @@
 from django.shortcuts import render
 from .models import  * 
+from property.models import * 
 
 # Create your views here.
 def home(request): 
-    context = {} 
+
+
+    ## get all ads 
+    apartments_rent = ApartmentRent.objects.all() 
+
+
+    context = {
+        'apartments_rent': apartments_rent 
+    } 
     return render(request, 'pages/index.html', context)
 
 def about(request): 
