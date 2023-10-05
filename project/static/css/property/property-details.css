@@ -203,7 +203,8 @@ body {
 }
 
 .advertiser__contact #btn__whatsapp {
-    background: #2cb12c; 
+    background: #61cf70; 
+    color: #f9f9f9; 
 }
 
 @media (min-width: 900px) { 

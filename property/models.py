@@ -1,5 +1,8 @@
 from django.db import models
 from geoposition.fields import GeopositionField
+import random 
+import string 
+
 # Create your models here.
 
 
@@ -21,11 +24,22 @@ INTERFACE_CHOICES = [
 ]
 
 
+def generate(): 
+    # Generate 2 random numbers between 0 and 9
+    random_numbers = ''.join(random.choice(string.digits) for _ in range(2))
 
+# Generate 3 random characters (uppercase and lowercase letters)
+    random_characters = ''.join(random.choice(string.ascii_letters) for _ in range(3))
+
+# Combine the random numbers and characters
+    random_value = random_numbers + random_characters
+
+    return str(random_value) 
 
 #### شقة 
 
 class ApartmentRent(models.Model): 
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
 
     title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -84,6 +98,12 @@ class ApartmentRent(models.Model):
 
     def __str__(self): 
         return self.title 
+    
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 class ApartmentRentImage(models.Model):
     ad = models.ForeignKey(ApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان", related_name='imgs') 

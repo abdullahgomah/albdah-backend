@@ -28,19 +28,25 @@
 <section class="property">
     <div class="container">
 
-        <h3 class="property__title"> شقة للإيجار في شارع أبي سعد التيمي</h3>
+        <h3 class="property__title">{{property.title}}</h3>
         <h3 class="property__cost">
-            45000 ريال / <span id="type">سنوي</span>
+            {{property.price}} ريال / <span id="type">{{property.get_rent_type_display}}</span>
         </h3>
 
 
         <div class="gallery">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
+                    
+                    {% for img in property.imgs.all %}
+                        
+                        
                     <div class="swiper-slide">
-                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                        <img src="{{img.img.url}}" alt="">
                     </div>
-                    <div class="swiper-slide">
+                    {% endfor %}
+
+                    <!-- <div class="swiper-slide">
                         <img src="./assets/imgs/property_img_2.webp" alt="">
                     </div>
                     <div class="swiper-slide">
@@ -48,13 +54,19 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="./assets/imgs/property_img_4.webp" alt="">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <p class="pics__count">
                 <i class="fa-solid fa-border-none"></i>
-                <span>10</span>
-                <span>صور</span>
+                
+                {% if property.imgs.all.count == 1 %}
+                    <span>صورة واحدة</span>
+                {% else %}
+                    <span>{{property.imgs.all.count}}</span>
+                    <span>صور</span>
+                {% endif %}
+                    
             </p>
         </div>
 
@@ -82,30 +94,7 @@
 
         
         <p class="property__details">
-            شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
-            مكيفات اسبليت.
-            3 دورات مياه +غرفة غسالة.
-            سخانات فورية.
-            مطبخ خشبي مودرن.
-            شاورات زجاجية.
-            نوافذ مع شترات كهربائية.
-            ستالايت مركزي لكل غرفة+ الصالة
-            موقف خاص مظلل.
-            عداد كهرباء مستقل.
-            كاميرات مراقبة خارجية على كامل المبنى.
-            <br>
-            ملاحظة: الموقع على المنصة غير دقيق.
-            <br>
-            واتس  
-            <br>
-            <br>
-             رقم رخصة فال للوساطة والتسويق: 1200004570
-            <br>
-            <br>
-             رقم رخصة فال للوساطة والتسويق: 1200004570
-            <br>
-            <br>
-             رقم رخصة فال للوساطة والتسويق: 
+            {{property.description|safe}}
         </p>
 
 
@@ -118,13 +107,81 @@
                         <div>
 
                             <p>المساحة</p>
-                            <p>145 م</p>
+                            <p><span>{{property.space}}</span> م</p>
                         </div>
                     </td>
                     <td>
                         <div>    
                             <p>عوائل أم عزاب</p>
-                            <p>عوائل</p>
+                            
+                            {% if property.families == True %}
+                                <p>عوائل</p>
+                            {% else %}
+                                <p>عزاب</p>
+                            {% endif %}
+                                
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>العرض</p>
+                            <p>{{property.width}} م</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>الطول</p>
+                            <p>{{property.length}} م</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>عرض الشارع</p>
+                            <p>{{property.street_width}} م</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>مؤثثة</p>
+                            
+                            {% if property.furnished == True %}
+                            <i class="fa-solid fa-check"></i>
+                            {% else %}
+                            <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
+                            <!-- <p>{{property.furnished}}</p> -->
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>مدخل سيارة</p>
+                            
+                            {% if property.car_entrance == True %}
+                            <i class="fa-solid fa-check"></i>
+                                
+                            {% else %}
+                            <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>سطح خاص</p>
+                            
+                            {% if property.private_surface == True %}
+                            <i class="fa-solid fa-check"></i>
+                            {% else %}
+                            <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
                         </div>
                     </td>
                 </tr>
@@ -132,14 +189,14 @@
                     <td>
                         <div>
                             <p>الغرف</p>
-                            <p>3</p>
+                            <p>{{property.rooms}}</p>
                         </div>
                     </td>
                     <td>
                         <div>
 
                             <p>الصالات</p>
-                            <p>1</p>
+                            <p>{{property.lounges}}</p>
                         </div>
                     </td>
                 </tr>
@@ -148,7 +205,7 @@
                         <div>
 
                             <p>عمر العقار</p>
-                            <p>2</p>
+                            <p>{{property.property_age}}</p>
                         </div>
                     </td>
                     <td>
@@ -162,13 +219,25 @@
                     <td>
                         <div>
                             <p>مصعد</p>
-                            <p>موجود</p>
+                            
+                            {% if property.elevator == True %}
+                                <i class="fa-solid fa-check"></i>
+                            {% else %}
+                                <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
                         </div>
                     </td>
                     <td>
                         <div>
                             <p>مكيف</p>
-                            <p>موجود</p>
+                            
+                            {% if property.ac == True %}
+                            <i class="fa-solid fa-check"></i>
+                            {% else %}
+                            <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
                         </div>
                     </td>
                 </tr>
@@ -176,13 +245,79 @@
                     <td>
                         <div>
                             <p>رقم الإعلان</p>
-                            <p>5507882</p>
+                            <p>{{property.number}}</p>
                         </div>
                     </td>
                     <td>
                         <div>
                             <p>آخر تحديث</p>
                             <p>قبل دقيقة</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>عدد دورات المياه</p>
+                            <p>{{property.bathroom}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>الدور</p>
+                            <p>{{property.floor}}</p>
+                                
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>في فيلا</p>
+                            
+                            {% if property.in_villa == True %}
+                                <i class="fa-solid fa-check"></i>
+                            {% else %}
+                                <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>مدخلين</p>
+                            
+                            {% if property.two_enternace == True %}
+                                <i class="fa-solid fa-check"></i>
+                            {% else %}
+                                <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>مدخل خاص</p>
+                            
+                            {% if property.private_enternace == True %}
+                                <i class="fa-solid fa-check"></i>
+                            {% else %}
+                                <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>ملحق</p>
+                            
+                            {% if property.extenstion == True %}
+                                <i class="fa-solid fa-check"></i>
+                            {% else %}
+                                <i class="fa-solid fa-xmark"></i>
+                            {% endif %}
+                                
                         </div>
                     </td>
                 </tr>
@@ -224,6 +359,8 @@
     </div>
 </section>
 
+
+<script src="{% static 'js/pages/app.js' %}"></script>
 {% endblock content %}
     
 
