@@ -44,6 +44,12 @@ section.gallery .container img {
     object-fit: cover;
 }
 
+footer {
+    position: absolute !important;
+    bottom: 0;
+    left: 0; 
+}
+
 @media (max-width: 767px) {
     .container {
         width: 90% !important; 

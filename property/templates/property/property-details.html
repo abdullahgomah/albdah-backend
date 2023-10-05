@@ -1,0 +1,336 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    {{property.title}}
+{% endblock title %}
+    
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'css/property/property-details.css' %}">
+
+    <!-- swiper -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+
+{% endblock stylesheets %}
+    
+
+
+{% block content %}
+
+<section class="property">
+    <div class="container">
+
+        <h3 class="property__title"> شقة للإيجار في شارع أبي سعد التيمي</h3>
+        <h3 class="property__cost">
+            45000 ريال / <span id="type">سنوي</span>
+        </h3>
+
+
+        <div class="gallery">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./assets/imgs/property_1_cover_img.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/imgs/property_img_2.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/imgs/property_img_3.webp" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./assets/imgs/property_img_4.webp" alt="">
+                    </div>
+                </div>
+            </div>
+            <p class="pics__count">
+                <i class="fa-solid fa-border-none"></i>
+                <span>10</span>
+                <span>صور</span>
+            </p>
+        </div>
+
+        <div class="property__actions">
+            <div class="container">
+
+                <ul>
+                    <li><a href="#" class="list-item">
+                        <i class="fa-regular fa-heart"></i>
+                        المفضلة
+                    </a></li>
+                    <li><a href="#" class="list-item">
+                        <i class="fa-solid fa-share" id="share"></i>
+                        شارك
+                    </a></li>
+                    <li><a href="#" class="list-item" >
+                        <i class="fa-solid fa-flag" id="report"></i>
+                        إبلاغ
+                    </a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        
+        <p class="property__details">
+            شقة فاخرة مودرن تتكون من3 غرف ( غرفة نوم ماستر + غرفتين نوم) + صالة معيشة كبيرة.
+            مكيفات اسبليت.
+            3 دورات مياه +غرفة غسالة.
+            سخانات فورية.
+            مطبخ خشبي مودرن.
+            شاورات زجاجية.
+            نوافذ مع شترات كهربائية.
+            ستالايت مركزي لكل غرفة+ الصالة
+            موقف خاص مظلل.
+            عداد كهرباء مستقل.
+            كاميرات مراقبة خارجية على كامل المبنى.
+            <br>
+            ملاحظة: الموقع على المنصة غير دقيق.
+            <br>
+            واتس  
+            <br>
+            <br>
+             رقم رخصة فال للوساطة والتسويق: 1200004570
+            <br>
+            <br>
+             رقم رخصة فال للوساطة والتسويق: 1200004570
+            <br>
+            <br>
+             رقم رخصة فال للوساطة والتسويق: 
+        </p>
+
+
+        <br>
+
+        <div class="property__features">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+
+                            <p>المساحة</p>
+                            <p>145 م</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>    
+                            <p>عوائل أم عزاب</p>
+                            <p>عوائل</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>الغرف</p>
+                            <p>3</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+
+                            <p>الصالات</p>
+                            <p>1</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+
+                            <p>عمر العقار</p>
+                            <p>2</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>مطبخ</p>
+                            <p>موجود</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>مصعد</p>
+                            <p>موجود</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>مكيف</p>
+                            <p>موجود</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>رقم الإعلان</p>
+                            <p>5507882</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <p>آخر تحديث</p>
+                            <p>قبل دقيقة</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            <p>المشاهدات</p>
+                            <p>1600</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div>       
+                            <p>رخصة الإعلان</p>
+                            <p>7100019916</p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="property__video">
+            <iframe width="100%" height="534" src="https://www.youtube.com/embed/1JljycS820k" title="WHY ROLLS ROYCE CARS SO EXPENSIVE ليش اسعار الروز رايز بالملايين ؟" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+        </div>
+
+        
+    </div>
+</section>
+
+<section class="advertiser">
+    <div class="container">
+        <img src="./assets/imgs/profile-pic.svg" alt="" class="advertiser_pic">
+        
+        <h2 class="advertiser__name">مؤسسة منازل أبحر العقارية</h2>
+
+        <div class="advertiser__contact">
+            <a href="#" id="btn__call">إظهار رقم الجوال</a>
+            <a href="#" id="btn__whatsapp">تواصل واتساب</a>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+    
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/normalize.css"> 
+    <link rel="icon" href="./assets/imgs/logo.jpeg"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- swiper -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+
+  
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="./assets/imgs/logo.jpeg" alt="">
+                <img src="./assets/imgs/logoText-e961f794.png" alt="">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="list-item">الرئيسية</a></li>
+                    <li><a href="#" class="list-item">أصحاب العقار</a></li>
+                    <li><a href="#" class="list-item">طلب عقد إلكتروني</a></li>
+                    <li><a href="#" class="list-item">تواصل معنا</a></li>
+                    <li><a href="#" class="list-item">من نحن</a></li>
+                </ul>
+            </nav>
+            <nav>
+                <ul>
+                    <li><a href="#" class="btn btn-solid">إضافة عقار</a></li>
+                    <li><a href="#" class="btn btn-outline">تسجيل دخول</a></li>
+                </ul>
+            </nav>
+            <a href="#" id="burger-menu">
+                <i class="fa-solid fa-bars"></i>
+            </a>
+        </div>
+    </header>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo-container">
+                    <img src="./assets/imgs/logo-transparent.png" alt="">
+                </div>
+                <div class="quick-links">
+                    <h4>روابط سريعة</h4>
+
+                    <ul>
+                        <li><a href="#" class="list-item">الرئيسية</a></li>
+                        <li><a href="#" class="list-item">أصحاب العقار</a></li>
+                        <li><a href="#" class="list-item">طلب عقد إلكتروني</a></li>
+                        <li><a href="#" class="list-item">تواصل معنا</a></li>
+                        <li><a href="#" class="list-item">من نحن</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h4>تابعنا على</h4>
+
+                    <ul>
+                        <li><a href="#" class="list-item social-link">
+                            <i class="fa-brands fa-snapchat"></i>
+                        </a></li>
+
+                        <li><a href="#" class="list-item social-link">
+                            <i class="fa-solid fa-phone"></i>
+                        </a></li>
+                        
+                        <li><a href="#" class="list-item social-link">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a></li>
+                        
+                        <li><a href="#" class="list-item social-link">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </a></li>
+                        
+                        <li><a href="#" class="list-item social-link">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="copyrights">
+                مكتب البداح للعقارات © 2023 جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
