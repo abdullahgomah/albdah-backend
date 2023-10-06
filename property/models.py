@@ -590,6 +590,19 @@ class FurnishedApartmentRent(models.Model):
         pass 
 
 
+
+
+class FurnishedApartmentRentImage(models.Model):
+    ad = models.ForeignKey(FurnishedApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
+    img = models.ImageField(upload_to="rent/furnished-apartment/")
+    
+    def __str__(self):
+        return " "
+
+
+
+
+
 ### شاليه
 
 class ChaletRent(models.Model):
@@ -621,6 +634,7 @@ class ChaletRent(models.Model):
     sanitation_exist = models.BooleanField(default=False, verbose_name="توفر الصرف")
 
 
+    video = models.FileField(upload_to='rent/chalet/video', verbose_name="فيديو",null=True, blank=True)
 
 
     def __str__(self):
@@ -629,3 +643,13 @@ class ChaletRent(models.Model):
     class Meta:
         verbose_name = 'ChaletRent'
         verbose_name_plural = 'ChaletRents'
+
+
+class ChaletRentImage(models.Model):
+    ad = models.ForeignKey(ChaletRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
+    img = models.ImageField(upload_to="rent/chalet/")
+    
+    def __str__(self):
+        return " "
+
+
