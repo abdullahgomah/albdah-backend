@@ -121,6 +121,7 @@ class ApartmentRentImage(models.Model):
 
 class FloorRent(models.Model):
 
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
@@ -198,6 +199,7 @@ class FloorRentImage(models.Model):
 ##### فيلا 
 
 class VillaRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES) 
 
@@ -288,6 +290,7 @@ class VillaRentImage(models.Model):
 ####### محل
 
 class ShopRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
@@ -330,6 +333,7 @@ class ShopRentImage(models.Model):
 ####### استراحة
 
 class RestHouseRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار")
@@ -381,6 +385,7 @@ class RestHouseRentImage(models.Model):
 ######## مكتب تجاري
 
 class CommercialOfficeRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     floor = models.IntegerField(default=False, verbose_name="الدور")
@@ -430,6 +435,7 @@ class Purpose(models.Model):
 
 #######  أرض 
 class LandRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -468,6 +474,8 @@ class LandRentImage(models.Model):
 
 ##### عمارة
 class BuildingRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     sotres_count = models.IntegerField(default=0, verbose_name="عدد المحلات")
     apartments_count = models.IntegerField(default=0, verbose_name="عدد الشقق")
@@ -505,8 +513,10 @@ class BuildingRentImage(models.Model):
 
 
 
-
+### مستودع
 class WarehouseRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+ 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
@@ -538,7 +548,11 @@ class WarehouseRentImage(models.Model):
 
 
 
+
+## شقة مفروشة
+
 class FurnishedApartmentRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -576,7 +590,10 @@ class FurnishedApartmentRent(models.Model):
         pass 
 
 
+### شاليه
+
 class ChaletRent(models.Model):
+    number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
 
