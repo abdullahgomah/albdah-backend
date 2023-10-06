@@ -236,7 +236,8 @@ async function initMap() {
             position: "{{ apartment.position }}",
             price: "{{ apartment.price }}", 
             description: "{{apartment.description|truncatewords:5}}",
-            cover_img: "{{apartment.imgs.first.img.url}}"
+            cover_img: "{{apartment.imgs.first.img.url}}",
+            number: "{{apartment.number}}", 
         },
     {% endfor %}
     ];
@@ -256,11 +257,12 @@ async function initMap() {
             apartmentPrice = apartment.price, 
             apartmentTitle = apartment.title, 
             apartmentDescription = apartment.description, 
-            apartmentCoverImg = apartment.cover_img
+            apartmentCoverImg = apartment.cover_img,
             lat = Number(apartment.position.split(',')[0])
             lng = Number(apartment.position.split(',')[1])
 
         priceTag.textContent = apartmentPrice
+
 
 
         var marker = new AdvancedMarkerElement ({
@@ -271,9 +273,11 @@ async function initMap() {
         });
 
         marker.addListener('click', function () {
-            // alert(city[0]) 
+            let apartmentNumber = apartment.number; 
+            
             infoCard.style.display = 'flex'; 
             infoCardH3.textContent = apartmentTitle 
+            infoCardH3.href = `/property/${apartmentNumber}/details/`; 
             infoCardP.textContent = apartmentDescription 
             coverImg.src = apartmentCoverImg; 
             mapOptions.style.display = 'none'; 
