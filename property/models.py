@@ -179,6 +179,13 @@ class FloorRent(models.Model):
     def __str__(self):
         pass
 
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
+
+
     class Meta:
         verbose_name = 'FloorRent'
         verbose_name_plural = 'FloorRents'
@@ -271,6 +278,13 @@ class VillaRent(models.Model):
     def __str__(self):
         pass
 
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
+
+
     class Meta:
         verbose_name = 'VillaRent'
         verbose_name_plural = 'VillaRents'
@@ -307,6 +321,12 @@ class ShopRent(models.Model):
     sanitation_exist = models.BooleanField(default=False, verbose_name="توفر الصرف")
 
     video = models.FileField(upload_to="rent/shop_rent/", verbose_name="فيديو", null=True, blank=True)
+
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -361,6 +381,11 @@ class RestHouseRent(models.Model):
     video = models.FileField(upload_to='rent/rest_house/video', verbose_name="فيديو", null=True, blank=True)
 
 
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
+
 
     def __str__(self):
         pass
@@ -402,6 +427,11 @@ class CommercialOfficeRent(models.Model):
     sanitation_exist = models.BooleanField(default=False, verbose_name="توفر الصرف")
 
     video = models.FileField(upload_to='rent/commercial_office/video', verbose_name="فيديو", null=True, blank=True)
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -449,6 +479,10 @@ class LandRent(models.Model):
     video = models.FileField(upload_to='rent/land/video', verbose_name="فيديو", null=True, blank=True)
 
 
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -496,6 +530,13 @@ class BuildingRent(models.Model):
     video = models.FileField(upload_to='rent/building/video', verbose_name="فيديو", null=True, blank=True)
 
 
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
+
+
+
     def __str__(self):
         pass
 
@@ -531,6 +572,10 @@ class WarehouseRent(models.Model):
     video = models.FileField(upload_to='rent/warehouse/video', verbose_name="فيديو",null=True, blank=True)
 
 
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
     
     def __str__(self):
@@ -584,6 +629,10 @@ class FurnishedApartmentRent(models.Model):
     power_exist = models.BooleanField(default=False, verbose_name="توفر الكهرباء")
     sanitation_exist = models.BooleanField(default=False, verbose_name="توفر الصرف")
 
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 
     def __str__(self): 
@@ -635,6 +684,12 @@ class ChaletRent(models.Model):
 
 
     video = models.FileField(upload_to='rent/chalet/video', verbose_name="فيديو",null=True, blank=True)
+
+
+    def save(self, *args, **kwargs): 
+        if not self.number: 
+            self.number = generate()
+        super(ApartmentRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
