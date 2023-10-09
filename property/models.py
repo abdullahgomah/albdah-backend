@@ -122,6 +122,10 @@ class ApartmentRentImage(models.Model):
 class FloorRent(models.Model):
 
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
+    
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
@@ -176,14 +180,11 @@ class FloorRent(models.Model):
     private_enternace = models.BooleanField(default=False, verbose_name="مدخل خاص")
 
 
-    def __str__(self):
-        pass
-
 
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(FloorRent, self).save(*args, **kwargs)
 
 
     class Meta:
@@ -207,6 +208,8 @@ class FloorRentImage(models.Model):
 
 class VillaRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES) 
 
@@ -275,14 +278,11 @@ class VillaRent(models.Model):
     hair_tent_house = models.BooleanField(default=False, verbose_name="بيت شعر")
 
 
-    def __str__(self):
-        pass
-
 
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(VillaRent, self).save(*args, **kwargs)
 
 
     class Meta:
@@ -305,6 +305,8 @@ class VillaRentImage(models.Model):
 
 class ShopRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
@@ -326,7 +328,7 @@ class ShopRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(ShopRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -354,6 +356,8 @@ class ShopRentImage(models.Model):
 
 class RestHouseRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار")
@@ -384,7 +388,7 @@ class RestHouseRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(RestHouseRent, self).save(*args, **kwargs)
 
 
     def __str__(self):
@@ -411,6 +415,8 @@ class RestHouseRentImage(models.Model):
 
 class CommercialOfficeRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     floor = models.IntegerField(default=False, verbose_name="الدور")
@@ -431,11 +437,10 @@ class CommercialOfficeRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(CommercialOfficeRent, self).save(*args, **kwargs)
 
 
-    def __str__(self):
-        pass
+
 
     class Meta:
         verbose_name = 'CommercialOfficeRent'
@@ -448,9 +453,6 @@ class CommercialOfficeRent(models.Model):
 class CommercialOfficeRentImage(models.Model):
     ad = models.ForeignKey(CommercialOfficeRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/commercial_office/")
-    
-    def __str__(self):
-        return " "
 
 
 
@@ -466,6 +468,8 @@ class Purpose(models.Model):
 #######  أرض 
 class LandRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -482,11 +486,9 @@ class LandRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(LandRent, self).save(*args, **kwargs)
 
 
-    def __str__(self):
-        pass
 
     class Meta:
         verbose_name = 'LandRent'
@@ -509,14 +511,16 @@ class LandRentImage(models.Model):
 ##### عمارة
 class BuildingRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     sotres_count = models.IntegerField(default=0, verbose_name="عدد المحلات")
     apartments_count = models.IntegerField(default=0, verbose_name="عدد الشقق")
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
 
-    rooms = models.IntegerField(default=0, verbose_name="الغرف") 
-    purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True) 
+    # rooms = models.IntegerField(default=0, verbose_name="الغرف") 
+    purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="الغرض") 
 
     description = models.TextField(verbose_name="وصف العقار", default="   ")
 
@@ -533,12 +537,12 @@ class BuildingRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(BuildingRent, self).save(*args, **kwargs)
 
 
 
     def __str__(self):
-        pass
+        return str(self.number) 
 
     class Meta:
         verbose_name = 'BuildingRent'
@@ -557,6 +561,8 @@ class BuildingRentImage(models.Model):
 ### مستودع
 class WarehouseRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
  
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -575,11 +581,8 @@ class WarehouseRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(WarehouseRent, self).save(*args, **kwargs)
 
-    
-    def __str__(self):
-        pass 
 
 
 
@@ -598,6 +601,8 @@ class WarehouseRentImage(models.Model):
 
 class FurnishedApartmentRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
     
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -632,11 +637,7 @@ class FurnishedApartmentRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
-
-
-    def __str__(self): 
-        pass 
+        super(FurnishedApartmentRent, self).save(*args, **kwargs)
 
 
 
@@ -656,6 +657,8 @@ class FurnishedApartmentRentImage(models.Model):
 
 class ChaletRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
+    position = GeopositionField() 
+    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
 
@@ -689,11 +692,8 @@ class ChaletRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
-        super(ApartmentRent, self).save(*args, **kwargs)
+        super(ChaletRent, self).save(*args, **kwargs)
 
-
-    def __str__(self):
-        pass
 
     class Meta:
         verbose_name = 'ChaletRent'

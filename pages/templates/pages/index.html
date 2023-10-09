@@ -171,6 +171,218 @@
                     </div>
                 </div>
                 {% endfor %}
+
+
+                {% for property in floors_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in villas_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in shops_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in resthouses_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+                {% for property in commercial_offices_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+                {% for property in lands_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in buildings_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in warehouses_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% for property in furnished_apartements_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% for property in chalets_rent %}
+                    
+                <div class="item property">
+                    <div class="property__info">
+                        <h4 class="property__title">
+                            <a href="{% url 'property:property-details' property.number %}">{{property.title}}</a>
+                        </h4>
+                        <p class="property__price">
+                            {{property.price}} ريال / <span>{{property.get_rent_type_display }}</span>
+                        </p>
+                        <p class="property__description">
+                            {{property.description|safe|truncatewords:10}}
+                        </p>
+                    </div>
+                    <div class="property__cover_img">
+                        <img src="{{property.imgs.all.first.img.url}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+
                     
 
 

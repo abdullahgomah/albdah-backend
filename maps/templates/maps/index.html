@@ -198,6 +198,193 @@ let mapOptions = document.querySelector('.map-options');
 
 let coverImg = document.querySelector('.cover img') 
 
+let apartments_rent_data = []; 
+let floors_rent_data = []; 
+let villas_rent_data = []; 
+let shops_rent_data = [] ; 
+let resthouses_rent_data = []; 
+let commercial_offices_rent_data = []; 
+let lands_rent_data = []; 
+let buildings_rent_data = []; 
+let warehouses_rent_data = [] ; 
+let furnished_apartements_rent_data =[]; 
+let chalets_rent_data = []; 
+
+function get_chalets_rent() {
+    chalets_rent_data = [
+    {% for property in chalets_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "chalets_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_furnished_apartements_rent() { 
+    furnished_apartements_rent_data = [
+    {% for property in furnished_apartements_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "furnished_apartements_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_warehouses_rent() {
+    warehouses_rent_data = [
+    {% for property in warehouses_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "warehouse_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_buildings_rent() {
+    buildings_rent_data = [
+    {% for property in buildings_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "building_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_lands_rent() {
+    lands_rent_data = [
+    {% for property in lands_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "land_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_commercial_offices_rent() {
+    commercial_offices_rent_data = [
+    {% for property in commercial_offices_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "commercial_offices_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_resthouses_rent() {
+    resthouses_rent_data = [
+    {% for property in resthouses_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "resthouse_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_shops_rent() {
+    shops_rent_data = [
+    {% for property in shops_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "shop_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_villas_rent() {
+    villas_rent_data = [
+    {% for property in villas_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "villa_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_apartment_rent() { 
+    apartments_rent_data = [
+    {% for property in apartments_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "apartment_rent" 
+        },
+    {% endfor %}
+    ];
+}
+
+function get_floors_rent() {
+    floors_rent_data = [
+    {% for property in floors_rent %}
+        {
+            title: "{{property.title}}", 
+            position: "{{ property.position }}",
+            price: "{{ property.price }}", 
+            description: "{{property.description|truncatewords:5}}",
+            cover_img: "{{property.imgs.first.img.url}}",
+            number: "{{property.number}}", 
+            property_type: "floor_rent" 
+        },
+    {% endfor %}
+    ];
+}
 
 infoCardCloseBtn.addEventListener('click', () => {
     infoCard.style.display = 'none';
@@ -238,6 +425,7 @@ async function initMap() {
             description: "{{apartment.description|truncatewords:5}}",
             cover_img: "{{apartment.imgs.first.img.url}}",
             number: "{{apartment.number}}", 
+            property_type: "apartment" 
         },
     {% endfor %}
     ];

@@ -33,3 +33,5 @@ admin.site.register(BuildingRent)
 admin.site.register(BuildingRentImage)
 
 
+
+admin.site.register(Purpose) 
