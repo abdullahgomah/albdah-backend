@@ -416,24 +416,37 @@ async function initMap() {
     priceTag.className = "price-tag";
 
 
-    var apartmentsData = [
-    {% for apartment in apartments_rent %}
-        {
-            title: "{{apartment.title}}", 
-            position: "{{ apartment.position }}",
-            price: "{{ apartment.price }}", 
-            description: "{{apartment.description|truncatewords:5}}",
-            cover_img: "{{apartment.imgs.first.img.url}}",
-            number: "{{apartment.number}}", 
-            property_type: "apartment" 
-        },
-    {% endfor %}
-    ];
+//    var apartmentsData = [
+  //  {% for apartment in apartments_rent %}
+    //    {
+      //      title: "{{apartment.title}}", 
+        //    position: "{{ apartment.position }}",
+          //  price: "{{ apartment.price }}", 
+            //description: "{{apartment.description|truncatewords:5}}",
+            //cover_img: "{{apartment.imgs.first.img.url}}",
+            //number: "{{apartment.number}}", 
+            //property_type: "apartment" 
+        //},
+    //{% endfor %}
+    //];
 
 
 
-    for (let i=0; i<apartmentsData.length; i++ ) {
-        <!-- console.log(apartmentsData[i]) -->
+    get_apartment_rent() 
+    get_floors_rent() 
+    get_villas_rent() 
+    get_shops_rent() 
+    get_resthouses_rent() 
+    get_commercial_offices_rent() 
+    get_lands_rent() 
+    get_buildings_rent() 
+    get_warehouses_rent() 
+    get_furnished_apartements_rent() 
+    get_chalets_rent() 
+
+
+
+    for (let i=0; i<commercial_offices_rent_data.length; i++ ) {
 
 
         const priceTag = document.createElement("div");
@@ -441,15 +454,15 @@ async function initMap() {
         priceTag.className = "price-tag";
 
         // get the apartment 
-        let apartment = apartmentsData[i], 
-            apartmentPrice = apartment.price, 
-            apartmentTitle = apartment.title, 
-            apartmentDescription = apartment.description, 
-            apartmentCoverImg = apartment.cover_img,
-            lat = Number(apartment.position.split(',')[0])
-            lng = Number(apartment.position.split(',')[1])
+        let property = commercial_offices_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
 
-        priceTag.textContent = apartmentPrice
+        priceTag.textContent = propertytPrice
 
 
 
@@ -461,13 +474,13 @@ async function initMap() {
         });
 
         marker.addListener('click', function () {
-            let apartmentNumber = apartment.number; 
+            let propertyNumber = property.number; 
             
             infoCard.style.display = 'flex'; 
-            infoCardH3.textContent = apartmentTitle 
-            infoCardH3.href = `/property/${apartmentNumber}/details/`; 
-            infoCardP.textContent = apartmentDescription 
-            coverImg.src = apartmentCoverImg; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
             mapOptions.style.display = 'none'; 
             
         });
@@ -475,6 +488,444 @@ async function initMap() {
 
     }
 
+
+    for (let i=0; i<chalets_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = chalets_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+        
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+
+
+    for (let i=0; i<furnished_apartements_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = furnished_apartements_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+
+    for (let i=0; i<warehouses_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = warehouses_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+        
+    for (let i=0; i<buildings_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = buildings_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+    
+    for (let i=0; i<lands_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = lands_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+    
+    for (let i=0; i<resthouses_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = resthouses_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+    
+    for (let i=0; i<shops_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = shops_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+
+    for (let i=0; i<villas_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = villas_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+    
+    for (let i=0; i<apartments_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = apartments_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
+
+
+    for (let i=0; i<floors_rent_data.length; i++ ) {
+
+
+        const priceTag = document.createElement("div");
+
+        priceTag.className = "price-tag";
+
+        // get the apartment 
+        let property = floors_rent_data[i], 
+            propertytPrice = property.price, 
+            propertyTitle = property.title, 
+            propertyDescription = property.description, 
+            propertyCoverImg = property.cover_img,
+            lat = Number(property.position.split(',')[0])
+            lng = Number(property.position.split(',')[1])
+
+        priceTag.textContent = propertytPrice
+
+
+
+        var marker = new AdvancedMarkerElement ({
+            map,
+            position: { lat: lat, lng:lng  },
+            content: priceTag, 
+            // icon: './house(1).png',
+        });
+
+        marker.addListener('click', function () {
+            let propertyNumber = property.number; 
+            
+            infoCard.style.display = 'flex'; 
+            infoCardH3.textContent = propertyTitle 
+            infoCardH3.href = `/property/${propertyNumber}/details/`; 
+            infoCardP.textContent = propertyDescription 
+            coverImg.src = propertyCoverImg; 
+            mapOptions.style.display = 'none'; 
+            
+        });
+
+
+    }
 
 
     document.querySelector("#btn_satellite").addEventListener('click', function() {

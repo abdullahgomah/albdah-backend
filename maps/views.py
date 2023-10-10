@@ -31,3 +31,16 @@ def search_with_map(request):
     } 
 
     return render(request, 'maps/index.html', context)
+
+
+# let apartments_rent_data = []; 
+# let floors_rent_data = []; 
+# let villas_rent_data = []; 
+# let shops_rent_data = [] ; 
+# let resthouses_rent_data = []; 
+# let commercial_offices_rent_data = []; 
+# let lands_rent_data = []; 
+# let buildings_rent_data = []; 
+# let warehouses_rent_data = [] ; 
+# let furnished_apartements_rent_data =[]; 
+# let chalets_rent_data = []; 
