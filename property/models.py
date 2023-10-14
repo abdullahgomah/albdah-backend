@@ -41,37 +41,40 @@ def generate():
 class ApartmentRent(models.Model): 
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    # position = models.PointField() 
 
     title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
-    width = models.FloatField(verbose_name="العرض (متر)") 
-    length = models.FloatField(verbose_name="الطول (متر)")
+    # width = models.FloatField(verbose_name="العرض (متر)") 
+    # length = models.FloatField(verbose_name="الطول (متر)")
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار")
     exclusive = models.BooleanField(default=False, verbose_name='حصري') 
 
 
-    video = models.FileField(upload_to='rent/apartment/video', verbose_name="فيديو")
+    video = models.FileField(upload_to='rent/apartment/video', verbose_name="فيديو", null=True, blank=True)
 
-    street_width = models.FloatField(verbose_name="عرض الشارع") 
+    street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True)  
     rooms = models.IntegerField(default=0, verbose_name="الغرف") 
 
     lounges = models.IntegerField(default=0, verbose_name="الصالات") 
 
     bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
 
-    floor = models.IntegerField(default=0, verbose_name="الدور") 
+    floor = models.CharField(max_length=200, verbose_name="الدور", null=True, blank=True) 
 
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
+    property_age = models.CharField(max_length=200, verbose_name="عمر العقار", null=True, blank=True)  
 
     families = models.BooleanField(default=True, verbose_name="عوائل ام عزاب") 
 
-    rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار") 
+    rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار", null=True, blank=True) 
 
 
-    description = models.TextField(verbose_name="وصف العقار", default="   ")
+    description = models.TextField(verbose_name="وصف العقار", default="   ", null=True, blank=True) 
 
     furnished = models.BooleanField(default=False, verbose_name="مؤثثة") 
 
@@ -97,7 +100,7 @@ class ApartmentRent(models.Model):
     private_enternace = models.BooleanField(default=False, verbose_name="مدخل خاص")
 
     def __str__(self): 
-        return self.title 
+        return str(self.number ) 
     
 
     def save(self, *args, **kwargs): 
