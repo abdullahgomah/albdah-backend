@@ -19,6 +19,8 @@ let noImgsPopupYesBtn = document.querySelector('#no-imgs-popup-yes-btn');
 let noImgsPopupNoBtn = document.querySelector('#no-imgs-popup-no-btn'); 
 let imagesFileInput = document.querySelector('[name=property__imgs]'); 
 let previewImgsContainer = document.querySelector('.preview_imgs_container'); 
+let videoFileInput = document.querySelector('[name=property__video]'); 
+let previewVideoContainer = document.querySelector('.preview_video_container'); 
 
 sliderInputs.forEach((input) => {
     input.addEventListener('input', () => {
@@ -126,6 +128,10 @@ imagesFileInput.addEventListener('change', () => {
 
     const files = imagesFileInput.files; 
 
+    const selectedFiles = Array.from(files);
+
+    console.log(selectedFiles); 
+
     for (let i =0; i < files.length; i++ ) {
         
         // Get the File 
@@ -143,6 +149,28 @@ imagesFileInput.addEventListener('change', () => {
         const delButton = document.createElement('div'); 
         delButton.classList.add('del-btn'); 
         delButton.innerHTML = '<i class="fa-solid fa-x"></i>'; 
+
+        delButton.addEventListener('click', () => {
+            // Remove Image Container From Preview Images Container
+            previewImgsContainer.removeChild(imageContainer); 
+
+            // Remove The Image From File List to Set new file list 
+            // Remove the corresponding file from the selectedFiles array
+            const index = selectedFiles.indexOf(file);
+            if (index > -1) {
+                selectedFiles.splice(index, 1);
+            }
+
+            // Update the file input's files property with the modified selectedFiles array
+            const remainingFileList = new DataTransfer() ; 
+            selectedFiles.forEach((file) => {
+                remainingFileList.items.add(file); 
+            }) 
+
+            imagesFileInput.files = remainingFileList.files
+
+            // console.log(imagesFileInput.files); 
+        })
 
         imageContainerHeader.appendChild(delButton); 
         
@@ -167,6 +195,13 @@ imagesFileInput.addEventListener('change', () => {
 
 }) ; 
 
+// Handle Video Uploader 
+videoFileInput.addEventListener('change', () => {
+    // Reset the preview video container 
+    previewVideoContainer.innerHTML = ""; 
+
+    
+})
 
 propertyImgsNextPrev.querySelector('.btn-next').addEventListener('click', () => { 
     // GET FILE INPUT FOR PROPERTY IMAGES 
