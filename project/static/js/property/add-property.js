@@ -120,7 +120,9 @@ propertyInfoNextPrev.querySelector('.btn-next').addEventListener('click', () => 
 
 // Handle Images Uploader
 imagesFileInput.addEventListener('change', () => {
-    console.log(imagesFileInput.files); 
+    
+    // Remove All Images
+    previewImgsContainer.innerHTML = ''; 
 
     const files = imagesFileInput.files; 
 
@@ -129,9 +131,28 @@ imagesFileInput.addEventListener('change', () => {
         // Get the File 
         const file = files[i]; 
 
+        // Create New Image Container 
+        const imageContainer = document.createElement('div'); 
+        imageContainer.classList.add('image-container'); 
+        
+        // image container header 
+        const imageContainerHeader = document.createElement('div'); 
+        imageContainerHeader.classList.add('image-container-header'); 
+
+        // create 'x' button 
+        const delButton = document.createElement('div'); 
+        delButton.classList.add('del-btn'); 
+        delButton.innerHTML = '<i class="fa-solid fa-x"></i>'; 
+
+        imageContainerHeader.appendChild(delButton); 
+        
         //  Create New Image Element 
         const image = document.createElement('img')
         image.classList.add('preview_img'); 
+
+
+        imageContainer.appendChild(imageContainerHeader)
+        imageContainer.appendChild(image)
 
         // Read The URL of Image 
         const reader = new FileReader(); 
@@ -141,8 +162,7 @@ imagesFileInput.addEventListener('change', () => {
         reader.readAsDataURL(file) 
 
         // Add Image To Container
-        previewImgsContainer.appendChild(image); 
-
+        previewImgsContainer.appendChild(imageContainer); 
     }
 
 }) ; 
