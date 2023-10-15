@@ -45,7 +45,7 @@ class ApartmentRent(models.Model):
     lng = models.CharField(max_length=200, null=True, blank=True)  
     # position = models.PointField() 
 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
@@ -126,7 +126,7 @@ class FloorRent(models.Model):
 
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     
 
@@ -212,7 +212,7 @@ class FloorRentImage(models.Model):
 class VillaRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES) 
 
@@ -309,7 +309,7 @@ class VillaRentImage(models.Model):
 class ShopRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
@@ -360,7 +360,7 @@ class ShopRentImage(models.Model):
 class RestHouseRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار")
@@ -419,7 +419,7 @@ class RestHouseRentImage(models.Model):
 class CommercialOfficeRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     floor = models.IntegerField(default=False, verbose_name="الدور")
@@ -472,7 +472,7 @@ class Purpose(models.Model):
 class LandRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -515,7 +515,7 @@ class LandRentImage(models.Model):
 class BuildingRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     sotres_count = models.IntegerField(default=0, verbose_name="عدد المحلات")
@@ -565,7 +565,7 @@ class BuildingRentImage(models.Model):
 class WarehouseRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
  
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -605,7 +605,7 @@ class WarehouseRentImage(models.Model):
 class FurnishedApartmentRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
     
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
@@ -661,7 +661,7 @@ class FurnishedApartmentRentImage(models.Model):
 class ChaletRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
-    title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
 

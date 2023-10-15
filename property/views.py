@@ -35,7 +35,6 @@ def add_apartment_rent(request):
     exclusive = 0 
 
     if request.POST: 
-        title = request.POST.get('title-input') 
         price = request.POST.get('price-input') 
         space = request.POST.get('space-input') 
         advertiser_relation = request.POST.get('advertiser_relation')
@@ -54,7 +53,8 @@ def add_apartment_rent(request):
         property_age = request.POST.get('property-age-input') 
         description = request.POST.get('property__description__input') 
         rent_type_input = request.POST.get('rent_type_input') 
-        
+        video = request.FILES['property__video'] 
+        images = request.FILES.getlist('property__imgs') 
         families = request.POST.get('families') 
         furnished = request.POST.get('furnished') 
         kitchen = request.POST.get('kitchen') 
@@ -93,10 +93,10 @@ def add_apartment_rent(request):
 
 
         apartment = ApartmentRent.objects.create(
-            title= title, 
             description = description, 
             price= price, 
             space=space, 
+            video= video, 
             advertiser_relation= advertiser_relation, 
             exclusive = exclusive, 
             rooms = rooms, 
@@ -121,8 +121,14 @@ def add_apartment_rent(request):
             in_villa = features[11], 
             two_enternace = features[12], 
             private_enternace = features[13]
-        ) 
-        
+        )
+
+        for img in images: 
+            ApartmentRentImage.objects.create(
+                ad = apartment, 
+                img = img
+            ).save() 
+            
 
         # print(price)
         # print(space)

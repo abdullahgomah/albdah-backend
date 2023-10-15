@@ -200,7 +200,17 @@ videoFileInput.addEventListener('change', () => {
     // Reset the preview video container 
     previewVideoContainer.innerHTML = ""; 
 
-    
+    const file = videoFileInput.files[0]; 
+    const reader = new FileReader() 
+    reader.onload = () => {
+        const video = document.createElement('video') 
+        video.classList.add("preview_video"); 
+        video.setAttribute('controls', "true") 
+        video.src = reader.result; 
+        previewVideoContainer.appendChild(video) ; 
+    }
+
+    reader.readAsDataURL(file)
 })
 
 propertyImgsNextPrev.querySelector('.btn-next').addEventListener('click', () => { 

@@ -341,6 +341,13 @@ section .section__timeline__content div:nth-child(3)::after {
 }
 
 
+
+/* preview video container styling */
+.preview_video {
+    width: 100%; 
+}
+
+
 /* Delete button */
 .del-btn {
     padding: 1rem;
