@@ -53,7 +53,11 @@ def add_apartment_rent(request):
         property_age = request.POST.get('property-age-input') 
         description = request.POST.get('property__description__input') 
         rent_type_input = request.POST.get('rent_type_input') 
-        video = request.FILES['property__video'] 
+        try: 
+            video = request.FILES['property__video'] 
+        except: 
+            video = None 
+        print(video) 
         images = request.FILES.getlist('property__imgs') 
         families = request.POST.get('families') 
         furnished = request.POST.get('furnished') 

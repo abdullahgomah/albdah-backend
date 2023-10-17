@@ -113,7 +113,7 @@ propertyInfoNextPrev.querySelector('.btn-next').addEventListener('click', () => 
         counter +=1; 
     }
 
-    if (counter == 5) { 
+    if (counter == 4) { 
         propertyInfoSection.style.display = 'none' ; 
         propertyImgs.style.display = 'flex'; 
     }
