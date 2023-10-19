@@ -318,11 +318,19 @@ class VillaRentImage(models.Model):
 class ShopRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    
+
+
+    advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار", null=True, blank=True)
+    exclusive = models.BooleanField(default=False, verbose_name='حصري', blank=True, null=True) 
+
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
-    
+    price = models.IntegerField(default=0, verbose_name="السعر", null=True, blank=True)
+    space = models.IntegerField(default=0, verbose_name="المساحة", null=True, blank=True)
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
-
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
 
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار")
@@ -344,7 +352,7 @@ class ShopRent(models.Model):
 
 
     def __str__(self):
-        pass
+        return self.number
 
     class Meta:
         verbose_name = 'ShopRent'

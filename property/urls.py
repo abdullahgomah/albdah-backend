@@ -9,4 +9,5 @@ urlpatterns = [
     path('add-property/rent/apartment/', add_apartment_rent, name='add-apartment-rent'), 
     path('add-property/rent/floor/', add_floor_rent, name='add-floor-rent'),  
     path('add-property/rent/villa/', add_villa_rent, name='add-villa-rent'),  
+    path('add-property/rent/shop/', add_shop_rent, name='add-shop-rent'),  
 ]

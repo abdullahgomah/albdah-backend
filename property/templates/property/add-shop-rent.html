@@ -4,21 +4,21 @@
 
 
 {% block title %}
-إضافة فيلا للإيجار
+إضافة محل للإيجار
 {% endblock title %}
     
 
 {% block stylesheets %}
 
 
-    <link rel="stylesheet" href="{% static 'css/property/add-villa-rent.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/add-apartment-rent.css' %}">
 {% endblock stylesheets %}
     
 
 
 {% block content %}
 
-
+<input type="hidden" name="rent-shop">
 
 <div class="container form-container">
 
@@ -93,14 +93,14 @@
                 <input type="text" placeholder="الرجاء كتابة السعر...">
             </div> -->
 
-            <div class="box">
+            <!-- <div class="box">
                 <p>نوع الإيجار</p>
                 <div class="grid rent-type">
                     <input type="hidden" name="rent_type_input">
                     <div class="item" data-value="monthly">شهري</div>
                     <div class="item" data-value="yearly">سنوي</div>
                 </div>
-            </div>
+            </div> -->
             <br>
 
             <div class="box">
@@ -130,6 +130,8 @@
 
         </div>
 
+        <!-- هنا إضافة سلايدر الواجهة وكذلك في اضافة فيلا -->
+
         <div class="property__details">
             <div class="box" style="margin-top: 1rem;">
                 <input type="hidden" name="street-width-input">
@@ -146,102 +148,8 @@
             </div>
 
 
-            <div class="box">
-                <div class="info">
-                    <p>عدد الغرف</p>
-                </div>
-                <div class="grid room-count">
-                    <input type="hidden" name="room-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <!-- أكثر <i class="fa-solid fa-sort"></i> -->
-                        <select name="extra-room-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-
-                </div>
-
-            </div>
-            
-            <div class="box">
-                <div class="info">
-                    <p>الصالات</p>
-                </div>
-                <div class="grid lounges-count">
-                    <input type="hidden" name="lounges-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <select name="extra-lounges-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <p>عدد دورات المياه</p>
-                </div>
-                <div class="grid bathroom-count">
-                    <input type="hidden" name="bathroom-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <select name="extra-bathroom-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
             
 
-
-            <div class="box">
-                <div class="info">
-                    <p>الدور</p>
-                </div>
-                <div class="grid floor-number">
-                    <input type="hidden" name="floor-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">أرضي</div>
-                    <div class="item">علوي</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <select name="extra-floor-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
 
             <div class="box">
                 <div class="info">
@@ -315,64 +223,7 @@
                 <p>مزايا العقار</p>
                 <div class="property__features__wrapper">
 
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="families" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>عوائل</p>
-                    </div>
 
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="furnished" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مؤثثة</p>
-                    </div>
-
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="kitchen" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مطبخ</p>
-                    </div>
-
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="extenstion" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>ملحق</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="car_entrance" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مدخل سيارة</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="elevator" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مصعد</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="ac" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مكيف</p>
-                    </div>
 
                     <div class="property__feature__item">
                         <label class="toggle-container">
@@ -396,86 +247,6 @@
                             <span class="toggle-circle"></span>
                         </label>
                         <p>توفر الصرف</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="private_surface" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>سطح خاص</p>
-                    </div>
-                    
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="in_villa" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>في فيلا</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="two_enternace" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مدخلين</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="private_enternace" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>مدخل خاص</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="driver_room" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>عرفة سائق</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="maid_room" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>عرفة خادمة</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="duplex" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>دوبلكس</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="basement" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>قبو</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="yard" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>حوش</p>
-                    </div>
-
-                    <div class="property__feature__item">
-                        <label class="toggle-container">
-                            <input type="checkbox" name="hair_tent_house" class="toggle-switch">
-                            <span class="toggle-circle"></span>
-                        </label>
-                        <p>بيت شعر</p>
                     </div>
 
                 </div>
@@ -521,7 +292,7 @@
 </div>
 
 
-    <script src="{% static 'js/property/add-property.js' %}"></script>
+    <script src="{% static 'js/property/add-property-shop.js' %}"></script>
     
     <script>
         // JavaScript code to handle the toggle switch
