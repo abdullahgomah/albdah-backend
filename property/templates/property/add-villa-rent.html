@@ -4,14 +4,14 @@
 
 
 {% block title %}
-    إضافة شقة للإيجار
+إضافة فيلا للإيجار
 {% endblock title %}
     
 
 {% block stylesheets %}
 
 
-    <link rel="stylesheet" href="{% static 'css/property/add-apartment-rent.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/add-floor-rent.css' %}">
 {% endblock stylesheets %}
     
 
@@ -428,6 +428,54 @@
                             <span class="toggle-circle"></span>
                         </label>
                         <p>مدخل خاص</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="driver_room" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>عرفة سائق</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="maid_room" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>عرفة خادمة</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="duplex" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>دوبلكس</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="basement" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>قبو</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="yard" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>حوش</p>
+                    </div>
+
+                    <div class="property__feature__item">
+                        <label class="toggle-container">
+                            <input type="checkbox" name="hair_tent_house" class="toggle-switch">
+                            <span class="toggle-circle"></span>
+                        </label>
+                        <p>بيت شعر</p>
                     </div>
 
                 </div>

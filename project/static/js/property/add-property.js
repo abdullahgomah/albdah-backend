@@ -1,4 +1,5 @@
 let sliderInputs = document.querySelectorAll('.slider_input'); 
+let streetWidthSliderValueInput = document.querySelector("[name=street-width-input]")
 let grid = document.querySelectorAll('.grid'); 
 let markterTypeGrid =document.querySelector('#markter-type-grid'); 
 let subItems =markterTypeGrid.querySelectorAll('.sub-item'); 
@@ -21,10 +22,21 @@ let imagesFileInput = document.querySelector('[name=property__imgs]');
 let previewImgsContainer = document.querySelector('.preview_imgs_container'); 
 let videoFileInput = document.querySelector('[name=property__video]'); 
 let previewVideoContainer = document.querySelector('.preview_video_container'); 
+let extraRoomInput = document.querySelector('[name=extra-room-input]'); 
+
+let extraLoungesInput = document.querySelector('[name=extra-lounges-input]')
+
+let extraBathroomInput = document.querySelector('[name=extra-bathroom-input]') 
+
+let extraFloorInput = document.querySelector('[name=extra-floor-input]') 
+
+let extraPropertyAgeInput = document.querySelector('[name=extra-property-age-input]') 
+
 
 sliderInputs.forEach((input) => {
     input.addEventListener('input', () => {
         input.parentElement.parentElement.querySelector('.value').querySelector('span').textContent = input.value ;
+        streetWidthSliderValueInput.value = input.value; 
     })
 })
 
@@ -46,11 +58,15 @@ grid.forEach((grid_item) => {
                 document.querySelector('#markter-type-grid').style.display = 'none'; 
             }
             grid_item.querySelectorAll('.item').forEach((item) => {
-                item.style.background = '#eee' 
-                item.style.color = '#1e2957' 
+                // item.style.background = '#eee' 
+                // item.style.color = '#1e2957'
+                // this is reset code 
+                item.classList.remove('filled'); 
             })
-            item.style.background = "#1e2957"; 
-            item.style.color = '#ffffff'
+
+            // item.style.background = "#1e2957"; 
+            // item.style.color = '#ffffff'
+            item.classList.add('filled') 
         })
     })
 })
@@ -250,10 +266,6 @@ propertyDetailsNextPrev.querySelector('.btn-prev').addEventListener('click', () 
 })
 
 
-propertyDetailsNextPrev.querySelector('.btn-next').addEventListener('click', () => {
-    propertyDetailsSection.style.display = 'none'; 
-    propertyFeatures.style.display = 'block'; 
-})
 
 // propertyImgsNextPrev.querySelector('.btn-next').addEventListener('click', () => {
 //     propertyImgs.style.display = 'none'; 
@@ -286,16 +298,24 @@ propertyFeaturesNextPrev.querySelector('.btn-prev').addEventListener('click', ()
 let roomCountGrid = document.querySelector('.room-count'); 
 roomCountGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
+        if (item.classList.contains('item_more') == false) { 
+            extraRoomInput.value = "أكثر" ;
+        }
         item.parentElement.querySelector("[name=room-input]").value = item.textContent; 
-        console.log(item.parentElement.querySelector('[name=room-input]').value)
+        // console.log(item.parentElement.querySelector('[name=room-input]').value)
     })
 })
+
+
 
 let loungesCountGrid = document.querySelector('.lounges-count'); 
 loungesCountGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
+        if (item.classList.contains('item_more') == false) {
+            extraLoungesInput.value = 'أكثر';
+        }
         item.parentElement.querySelector("[name=lounges-input]").value = item.textContent; 
-        console.log(item.parentElement.querySelector('[name=lounges-input]').value)
+        // console.log(item.parentElement.querySelector('[name=lounges-input]').value)
     })
 })
 
@@ -303,8 +323,11 @@ loungesCountGrid.querySelectorAll('.item').forEach((item) => {
 let bathroomCountGrid = document.querySelector('.bathroom-count'); 
 bathroomCountGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
+        if (item.classList.contains('item_more') == false) { 
+            extraBathroomInput.value = 'أكثر'; 
+        }
         item.parentElement.querySelector("[name=bathroom-input]").value = item.textContent; 
-        console.log(item.parentElement.querySelector('[name=bathroom-input]').value)
+        // console.log(item.parentElement.querySelector('[name=bathroom-input]').value)
     })
 })
 
@@ -313,7 +336,7 @@ let propertyAgeGrid = document.querySelector('.property-age');
 propertyAgeGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
         item.parentElement.querySelector("[name=property-age-input]").value = item.textContent; 
-        console.log(item.parentElement.querySelector('[name=property-age-input]').value)
+        // console.log(item.parentElement.querySelector('[name=property-age-input]').value)
     })
 })
 
@@ -322,13 +345,115 @@ let floorNumberGrid = document.querySelector('.floor-number');
 floorNumberGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
         item.parentElement.querySelector("[name=floor-input]").value = item.textContent; 
-        console.log(item.parentElement.querySelector('[name=floor-input]').value)
+        // console.log(item.parentElement.querySelector('[name=floor-input]').value)
     })
 })
 
 let rentTypeGrid = document.querySelector('.rent-type') 
 rentTypeGrid.querySelectorAll('.item').forEach((item) => {
     item.addEventListener('click', () => {
-        item.parentElement.querySelector('[name=rent_type_input]').textContent = item.textContent
+        item.parentElement.querySelector('[name=rent_type_input]').textContent = item.getAttribute('data-value') 
+        item.parentElement.querySelector('[name=rent_type_input]').value = item.getAttribute('data-value') 
     })
 })
+
+
+// handle the inputs in the property__details section 
+let roomInput = document.querySelector('[name=room-input]'); 
+let loungesInput = document.querySelector("[name=lounges-input]")
+let bathroomInput = document.querySelector("[name=bathroom-input]")
+let floorInput = document.querySelector('[name=floor-input]'); 
+let propertyAgeInput = document.querySelector('[name=property-age-input]'); 
+
+extraRoomInput.addEventListener('change', () => { 
+    roomInput.value = "";
+})
+
+extraLoungesInput.addEventListener('change', () => {
+    loungesInput.value = ''; 
+})
+
+extraBathroomInput.addEventListener('change', () => {
+    bathroomInput.value = ''; 
+})
+
+
+extraPropertyAgeInput.addEventListener('change', () => {
+    propertyAgeInput.value = ''; 
+})
+
+
+propertyDetailsNextPrev.querySelector('.btn-next').addEventListener('click', () => {
+    // check all these inputs
+
+    let counter = 0 ; 
+
+    //1 
+    if (roomInput.value == "") {
+        roomInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        roomInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+
+
+
+    //2 
+    if (loungesInput.value == "") {
+        loungesInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        loungesInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+    //3
+    if (bathroomInput.value == "") {
+        bathroomInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        bathroomInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+    //4
+    if (floorInput.value == "") {
+        floorInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        floorInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+
+    // 5
+    if (propertyAgeInput.value == "") {
+        propertyAgeInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        propertyAgeInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+
+    //6 
+    if (streetWidthSliderValueInput.value == "") {
+        streetWidthSliderValueInput.parentElement.style.border = "1px solid #dc3546"
+    } else { 
+        // streetWidthSliderValueInput.parentElement.style.border = "1px solid #00000040"
+        counter = counter+1 ;
+    }
+
+
+    if (counter == 6) { 
+        propertyDetailsSection.style.display = 'none'; 
+        propertyFeatures.style.display = 'block'; 
+        console.log(true) 
+    } else { 
+        console.log(counter); 
+    }
+})
+
+
+/*
+            inputElement.style.border = "1px solid #dc3546"
+            inputElement.style.border = "1px solid #00000040"
+
+*/

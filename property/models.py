@@ -59,11 +59,15 @@ class ApartmentRent(models.Model):
     video = models.FileField(upload_to='rent/apartment/video', verbose_name="فيديو", null=True, blank=True)
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True)  
-    rooms = models.IntegerField(default=0, verbose_name="الغرف") 
+    # rooms = models.IntegerField(default=0, verbose_name="الغرف") 
+    rooms = models.CharField(max_length=10, verbose_name="الغرف", null=True, blank=True) 
 
-    lounges = models.IntegerField(default=0, verbose_name="الصالات") 
+    # lounges = models.IntegerField(default=0, verbose_name="الصالات") 
+    lounges = models.CharField(max_length=10, verbose_name="الصالات", null=True, blank=True) 
 
-    bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+    # bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+    bathroom = models.CharField(max_length=10, verbose_name="عدد دورات المياه", null=True, blank=True) 
+    
 
     floor = models.CharField(max_length=200, verbose_name="الدور", null=True, blank=True) 
 
@@ -127,13 +131,14 @@ class FloorRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
-
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
     
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
-    width = models.FloatField(verbose_name="العرض (متر)") 
-    length = models.FloatField(verbose_name="الطول (متر)")
+    width = models.FloatField(verbose_name="العرض (متر)", blank=True, null=True) 
+    length = models.FloatField(verbose_name="الطول (متر)", blank=True, null=True) 
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار")
     exclusive = models.BooleanField(default=False, verbose_name='حصري') 
@@ -142,15 +147,15 @@ class FloorRent(models.Model):
     video = models.FileField(upload_to='rent/floor/video', verbose_name="فيديو")
 
     street_width = models.FloatField(verbose_name="عرض الشارع") 
-    rooms = models.IntegerField(default=0) 
+    rooms = models.CharField(default=0, max_length=10, null=True, blank=True) 
 
-    lounges = models.IntegerField(default=0, verbose_name="الصالات") 
+    lounges = models.CharField(default=0, verbose_name="الصالات", null=True, blank=True, max_length=10) 
 
-    bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+    bathroom = models.CharField(default=0, verbose_name="عدد دورات المياه", null=True, blank=True, max_length=10) 
 
-    floor = models.IntegerField(default=0, verbose_name="الدور") 
+    floor = models.CharField(default=0, verbose_name="الدور", null=True, blank=True, max_length=10) 
 
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
+    property_age = models.CharField(default=0, verbose_name="عمر العقار", null=True, blank=True, max_length=10) 
 
     families = models.BooleanField(default=True, verbose_name="عوائل ام عزاب") 
 
@@ -214,30 +219,33 @@ class VillaRent(models.Model):
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES) 
 
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
-    width = models.FloatField(verbose_name="العرض (متر)") 
-    length = models.FloatField(verbose_name="الطول (متر)")
+    width = models.FloatField(verbose_name="العرض (متر)", null=True, blank=True) 
+    length = models.FloatField(verbose_name="الطول (متر)", null=True, blank=True)
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار")
     exclusive = models.BooleanField(default=False, verbose_name='حصري') 
 
 
-    video = models.FileField(upload_to='rent/villa/video', verbose_name="فيديو")
+    video = models.FileField(upload_to='rent/villa/video', verbose_name="فيديو", null=True, blank=True)
 
     street_width = models.FloatField(verbose_name="عرض الشارع") 
-    rooms = models.IntegerField(default=0) 
+    rooms = models.CharField(default=0, max_length=10, null=True, blank=True, verbose_name="عدد الغرف") 
 
-    lounges = models.IntegerField(default=0, verbose_name="الصالات") 
+    lounges = models.CharField(default=0, verbose_name="الصالات", null=True, blank=True, max_length=10) 
 
-    bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+    bathroom = models.CharField(default=0, verbose_name="عدد دورات المياه", null=True, blank=True, max_length=10) 
 
-    floor = models.IntegerField(default=0, verbose_name="الدور") 
+    floor = models.CharField(default=0, verbose_name="الدور", max_length=10, null=True, blank=True) 
 
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
+    property_age = models.CharField(default=0, verbose_name="عمر العقار", null=True, blank=True, max_length=10) 
 
     families = models.BooleanField(default=True, verbose_name="عوائل ام عزاب") 
 
@@ -245,6 +253,7 @@ class VillaRent(models.Model):
 
 
     description = models.TextField(verbose_name="وصف العقار")
+
 
     furnished = models.BooleanField(default=False, verbose_name="مؤثثة") 
 
