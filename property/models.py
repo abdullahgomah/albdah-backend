@@ -322,6 +322,7 @@ class ShopRent(models.Model):
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
 
+    rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار", null=True, blank=True) 
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار", null=True, blank=True)
     exclusive = models.BooleanField(default=False, verbose_name='حصري', blank=True, null=True) 
@@ -378,12 +379,24 @@ class RestHouseRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
-
+    
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار")
-    lounges = models.IntegerField(default=0, verbose_name="الصالات") 
-    rooms = models.IntegerField(default=0, verbose_name="الغرف")
-    bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+    property_age = models.CharField(max_length=10, default=0, verbose_name="عمر العقار", null=True, blank=True)
+    lounges = models.CharField(max_length=10, default=0, verbose_name="الصالات", null=True, blank=True) 
+    # rooms = models.IntegerField(default=0, verbose_name="الغرف")
+    rooms = models.CharField(max_length=10, default=0, verbose_name="الغرف", null=True, blank=True)
+    bathroom = models.CharField(max_length=10, default=0, verbose_name="عدد دورات المياه", null=True, blank=True) 
+
+    rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار", null=True, blank=True) 
+    space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
+    price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
+
+    advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار", null=True, blank=True)
+    exclusive = models.BooleanField(default=False, verbose_name='حصري', blank=True, null=True) 
+
 
     description = models.TextField(verbose_name="وصف العقار", null=True, blank=True)
     pool = models.BooleanField(default=False, verbose_name="مسبح")
@@ -412,7 +425,7 @@ class RestHouseRent(models.Model):
 
 
     def __str__(self):
-        pass
+        return self.number 
 
     class Meta:
         verbose_name = 'RestHouseRent'
