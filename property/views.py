@@ -907,6 +907,6 @@ def add_building_rent(request):
         # print(property_age)
 
     context = {} 
-    return render(request, 'property/add-apartment-rent.html', context)
+    return render(request, 'property/add-building-rent.html', context)
 
 

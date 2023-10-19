@@ -4,14 +4,14 @@
 
 
 {% block title %}
-    إضافة شقة للإيجار
+إضافة بيت للإيجار
 {% endblock title %}
     
 
 {% block stylesheets %}
 
 
-    <link rel="stylesheet" href="{% static 'css/property/add-apartment-rent.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/add-building-rent.css' %}">
 {% endblock stylesheets %}
     
 
@@ -145,6 +145,20 @@
                 </div>
             </div>
 
+            <div class="box" style="margin-top: 1rem;">
+                <input type="hidden" name="stores-count-input">
+                <div class="info">
+                    <p>عدد المحلات</p>
+                    <p class="value">
+                        <span name="stores-count-input">0</span>
+                        م
+                    </p>
+                </div>
+                <div class="slider">
+                    <input class="slider_input" type="range" max="100" value="0">
+                </div>
+            </div>
+
 
             <div class="box">
                 <div class="info">
@@ -171,68 +185,19 @@
                 </div>
 
             </div>
-            
+
             <div class="box">
                 <div class="info">
-                    <p>الصالات</p>
+                    <p>عدد الشقق</p>
                 </div>
-                <div class="grid lounges-count">
-                    <input type="hidden" name="lounges-input">
-                    <!-- <div class="item">جديد</div> -->
+                <div class="grid apartements-count">
+                    <input type="hidden" name="property-apartments-count">
+                    <div class="item">0</div>
                     <div class="item">1</div>
-                    <div class="item">2</div>
                     <div class="item">3</div>
                     <div class="item">4</div>
                     <div class="item item_more">
-                        <select name="extra-lounges-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div class="info">
-                    <p>عدد دورات المياه</p>
-                </div>
-                <div class="grid bathroom-count">
-                    <input type="hidden" name="bathroom-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <select name="extra-bathroom-input" id="custom_select">
-                            <option disabled selected hidden>أكثر</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="+8">+8</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-
-
-            <div class="box">
-                <div class="info">
-                    <p>الدور</p>
-                </div>
-                <div class="grid floor-number">
-                    <input type="hidden" name="floor-input">
-                    <!-- <div class="item">جديد</div> -->
-                    <div class="item">أرضي</div>
-                    <div class="item">علوي</div>
-                    <div class="item">3</div>
-                    <div class="item">4</div>
-                    <div class="item item_more">
-                        <select name="extra-floor-input" id="custom_select">
+                        <select name="extra-apartments-count-input" id="custom_select">
                             <option disabled selected hidden>أكثر</option>
                             <option value="5">5</option>
                             <option value="6">6</option>
@@ -263,6 +228,19 @@
                             <option value="+8">+8</option>
                         </select>
                     </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="info">
+                    <p>الغرض</p>
+                </div>
+                <div class="select">
+                    <input type="hidden" name="property-purpose">
+                    <select name="property-purpose" id="property-purpose">
+                        <option value="" hidden selected disabled>غير محدد</option>
+                        <!-- هنا تتم اضافة الغرض من عرض البيت -->
+                    </select>
                 </div>
             </div>
 
@@ -473,7 +451,7 @@
 </div>
 
 
-    <script src="{% static 'js/property/add-property.js' %}"></script>
+    <script src="{% static 'js/property/add-property-building.js' %}"></script>
     
     <script>
         // JavaScript code to handle the toggle switch

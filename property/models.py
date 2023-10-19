@@ -507,7 +507,8 @@ class LandRent(models.Model):
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
     
-    purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True) 
+    # purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True) 
+    purpose = models.CharField(max_length=100, verbose_name="الغرض", null=True, blank=True)
     description = models.TextField(verbose_name="وصف العقار", default="  ")
 
     water_exist = models.BooleanField(default=False, verbose_name="توفر الماء")
@@ -548,12 +549,13 @@ class BuildingRent(models.Model):
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
-    sotres_count = models.IntegerField(default=0, verbose_name="عدد المحلات")
-    apartments_count = models.IntegerField(default=0, verbose_name="عدد الشقق")
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
+    sotres_count = models.CharField(default=0, verbose_name="عدد المحلات", max_length=10, null=True, blank=True)
+    apartments_count = models.CharField(default=0, verbose_name="عدد الشقق", max_length=10, null=True, blank=True)
+    property_age = models.CharField(default=0, verbose_name="عمر العقار", max_length=10, null=True, blank=True) 
 
     # rooms = models.IntegerField(default=0, verbose_name="الغرف") 
-    purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="الغرض") 
+
+    purpose = models.CharField(max_length=100, verbose_name="الغرض", null=True, blank=True)
 
     description = models.TextField(verbose_name="وصف العقار", default="   ")
 
