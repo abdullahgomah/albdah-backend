@@ -23,6 +23,8 @@ let previewImgsContainer = document.querySelector('.preview_imgs_container');
 let videoFileInput = document.querySelector('[name=property__video]'); 
 let previewVideoContainer = document.querySelector('.preview_video_container'); 
 let extraRoomInput = document.querySelector('[name=extra-room-input]'); 
+let storesCountSliderInput = document.querySelector('.stores-count-slider-input') 
+extraApartmentsCountInput =document.querySelector('[name=extra-apartments-count-input]')
 
 // let extraLoungesInput = document.querySelector('[name=extra-lounges-input]')
 
@@ -38,6 +40,10 @@ sliderInputs.forEach((input) => {
         input.parentElement.parentElement.querySelector('.value').querySelector('span').textContent = input.value ;
         streetWidthSliderValueInput.value = input.value; 
     })
+})
+
+storesCountSliderInput.addEventListener('input', () => {
+    storesCountInput.value = storesCountSliderInput.value; 
 })
 
 subItems.forEach((item) => {
@@ -314,7 +320,15 @@ roomCountGrid.querySelectorAll('.item').forEach((item) => {
     })
 })
 
-
+let apartmentsCountGrid = document.querySelector('.apartements-count') 
+apartmentsCountGrid.querySelectorAll('.item').forEach((item) => {
+    item.addEventListener('click', () => {
+        if (item.classList.contains("item_more") == false)  {
+            extraApartmentsCountInput.value = "أكثر"; 
+        }
+        item.parentElement.querySelector("[name=property-apartments-count]").value = item.textContent; 
+    })
+})
 
 
 let propertyAgeGrid = document.querySelector('.property-age'); 
@@ -338,10 +352,10 @@ rentTypeGrid.querySelectorAll('.item').forEach((item) => {
 
 // handle the inputs in the property__details section 
 let roomInput = document.querySelector('[name=room-input]'); 
-let loungesInput = document.querySelector("[name=lounges-input]")
-let bathroomInput = document.querySelector("[name=bathroom-input]")
-let floorInput = document.querySelector('[name=floor-input]'); 
 let propertyAgeInput = document.querySelector('[name=property-age-input]'); 
+let propertyApartmentsCount = document.querySelector('[name=property-apartments-count]') 
+let storesCountInput = document.querySelector('[name=stores-count-input]') 
+
 
 extraRoomInput.addEventListener('change', () => { 
     roomInput.value = "";
@@ -351,6 +365,11 @@ extraRoomInput.addEventListener('change', () => {
 extraPropertyAgeInput.addEventListener('change', () => {
     propertyAgeInput.value = ''; 
 })
+
+extraApartmentsCountInput.addEventListener('change', () => {
+    propertyApartmentsCount.value = ""; 
+})
+
 
 
 propertyDetailsNextPrev.querySelector('.btn-next').addEventListener('click', () => {
@@ -368,28 +387,18 @@ propertyDetailsNextPrev.querySelector('.btn-next').addEventListener('click', () 
 
 
 
-
-    //2 
-    if (loungesInput.value == "") {
-        loungesInput.parentElement.style.border = "1px solid #dc3546"
-    } else { 
-        loungesInput.parentElement.style.border = "1px solid #00000040"
+    if (propertyApartmentsCount.value == "") {
+        propertyApartmentsCount.parentElement.style.border = "1px solid #dc3546"
+    } else {
+        propertyApartmentsCount.parentElement.style.border = "1px solid #00000040"
         counter = counter+1 ;
     }
 
-    //3
-    if (bathroomInput.value == "") {
-        bathroomInput.parentElement.style.border = "1px solid #dc3546"
-    } else { 
-        bathroomInput.parentElement.style.border = "1px solid #00000040"
-        counter = counter+1 ;
-    }
 
-    //4
-    if (floorInput.value == "") {
-        floorInput.parentElement.style.border = "1px solid #dc3546"
-    } else { 
-        floorInput.parentElement.style.border = "1px solid #00000040"
+    if (storesCountInput.value == "") {
+        storesCountInput.parentElement.style.border = "1px solid #dc3546"
+    } else  {
+        storesCountInput.parentElement.style.border = "1px solid #00000040"
         counter = counter+1 ;
     }
 
@@ -408,11 +417,13 @@ propertyDetailsNextPrev.querySelector('.btn-next').addEventListener('click', () 
         streetWidthSliderValueInput.parentElement.style.border = "1px solid #dc3546"
     } else { 
         // streetWidthSliderValueInput.parentElement.style.border = "1px solid #00000040"
+        streetWidthSliderValueInput.parentElement.style.border = "none"
+        // 
         counter = counter+1 ;
     }
 
 
-    if (counter == 6) { 
+    if (counter == 5) { 
         propertyDetailsSection.style.display = 'none'; 
         propertyFeatures.style.display = 'block'; 
         console.log(true) 

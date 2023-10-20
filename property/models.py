@@ -547,13 +547,26 @@ class BuildingRent(models.Model):
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
+
+    advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار", null=True, blank=True)
+    exclusive = models.BooleanField(default=False, verbose_name='حصري', null=True, blank=True) 
+
+    rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار", null=True, blank=True) 
+
+    price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0, null=True, blank=True) 
+    space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0, null=True, blank=True) 
+    
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     sotres_count = models.CharField(default=0, verbose_name="عدد المحلات", max_length=10, null=True, blank=True)
     apartments_count = models.CharField(default=0, verbose_name="عدد الشقق", max_length=10, null=True, blank=True)
     property_age = models.CharField(default=0, verbose_name="عمر العقار", max_length=10, null=True, blank=True) 
 
-    # rooms = models.IntegerField(default=0, verbose_name="الغرف") 
+    rooms = models.CharField(default=0, verbose_name="الغرف", null=True, blank=True, max_length=10) 
 
     purpose = models.CharField(max_length=100, verbose_name="الغرض", null=True, blank=True)
 
