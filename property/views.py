@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import * 
 
 # Create your views here.
@@ -155,6 +155,9 @@ def add_apartment_rent(request):
                 ad = apartment, 
                 img = img
             ).save() 
+
+
+        return redirect('/ad-uploaded/')
             
 
         # print(price)
@@ -313,6 +316,7 @@ def add_floor_rent(request):
                 img = img
             ).save() 
             
+        return redirect('/ad-uploaded/')
 
         # print(price)
         # print(space)
@@ -487,6 +491,8 @@ def add_villa_rent(request):
             ).save() 
             
 
+        return redirect('/ad-uploaded/')
+
         # print(price)
         # print(space)
         # print(advertiser_relation)
@@ -620,6 +626,7 @@ def add_shop_rent(request):
                 img = img
             ).save() 
             
+        return redirect('/ad-uploaded/')
 
         # print(price)
         # print(space)
@@ -760,6 +767,7 @@ def add_rest_house_rent(request):
                 img = img
             ).save() 
             
+        return redirect('/ad-uploaded/')
 
 
     context = {} 
@@ -856,6 +864,8 @@ def add_building_rent(request):
                 ad = building, 
                 img = img
             ).save() 
+
+        return redirect('/ad-uploaded/')
 
 
     context = {} 

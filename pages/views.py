@@ -50,3 +50,8 @@ def contact(request):
 def request_contract(request): 
     context= {} 
     return render(request, 'pages/request_contract.html', context)
+
+
+def ad_uploaded(request): 
+    context = {} 
+    return render(request, 'pages/ad-uploaded-successfully.html', context)
