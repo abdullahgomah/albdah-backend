@@ -451,12 +451,16 @@ class CommercialOfficeRent(models.Model):
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+    
+
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
-    floor = models.IntegerField(default=False, verbose_name="الدور")
-    rooms = models.IntegerField(default=0, verbose_name="الغرف") 
-    lounges = models.IntegerField(default=0, verbose_name="الصالات") 
-    bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
-    property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
+    floor = models.CharField(max_length=10, default=False, verbose_name="الدور", null=True, blank=True)
+    rooms = models.CharField(max_length=10, default=0, verbose_name="الغرف", null=True, blank=True) 
+    lounges = models.CharField(max_length=10, default=0, verbose_name="الصالات", null=True, blank=True) 
+    bathroom = models.CharField(max_length=10, default=0, verbose_name="عدد دورات المياه", null=True, blank=True) 
+    property_age = models.CharField(max_length=10, default=0, verbose_name="عمر العقار", null=True, blank=True) 
     description = models.TextField(verbose_name="وصف العقار", null=True, blank=True)
 
     furnished = models.BooleanField(default=False, verbose_name="مؤثثة") 
