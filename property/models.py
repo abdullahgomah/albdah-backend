@@ -115,6 +115,8 @@ class ApartmentRent(models.Model):
 class ApartmentRentImage(models.Model):
     ad = models.ForeignKey(ApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان", related_name='imgs') 
     img = models.ImageField(upload_to="rent/apartment/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
+
     
     def __str__(self):
         return str(self.ad ) 
@@ -203,6 +205,7 @@ class FloorRent(models.Model):
 class FloorRentImage(models.Model):
     ad = models.ForeignKey(FloorRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/floor/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -308,6 +311,7 @@ class VillaRent(models.Model):
 class VillaRentImage(models.Model):
     ad = models.ForeignKey(VillaRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/villa/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -364,6 +368,7 @@ class ShopRent(models.Model):
 class ShopRentImage(models.Model):
     ad = models.ForeignKey(ShopRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/shop_rent/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -437,6 +442,7 @@ class RestHouseRent(models.Model):
 class RestHouseRentImage(models.Model):
     ad = models.ForeignKey(RestHouseRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/rest_house/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -491,6 +497,7 @@ class CommercialOfficeRentImage(models.Model):
     ad = models.ForeignKey(CommercialOfficeRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/commercial_office/")
 
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
 
 
 
@@ -536,6 +543,7 @@ class LandRent(models.Model):
 class LandRentImage(models.Model):
     ad = models.ForeignKey(LandRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/land/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -603,6 +611,7 @@ class BuildingRent(models.Model):
 class BuildingRentImage(models.Model):
     ad = models.ForeignKey(BuildingRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/building/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -641,6 +650,7 @@ class WarehouseRent(models.Model):
 class WarehouseRentImage(models.Model):
     ad = models.ForeignKey(WarehouseRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/warehouse/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -697,6 +707,7 @@ class FurnishedApartmentRent(models.Model):
 class FurnishedApartmentRentImage(models.Model):
     ad = models.ForeignKey(FurnishedApartmentRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/furnished-apartment/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "
@@ -755,6 +766,7 @@ class ChaletRent(models.Model):
 class ChaletRentImage(models.Model):
     ad = models.ForeignKey(ChaletRent, on_delete=models.CASCADE, verbose_name="الإعلان") 
     img = models.ImageField(upload_to="rent/chalet/")
+    main = models.BooleanField(default=0, null=True, blank=True, verbose_name="صورة رئيسية" ) 
     
     def __str__(self):
         return " "

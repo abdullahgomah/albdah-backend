@@ -141,6 +141,7 @@ propertyInfoNextPrev.querySelector('.btn-next').addEventListener('click', () => 
 
 }) 
 
+
 // Handle Images Uploader
 imagesFileInput.addEventListener('change', () => {
     
@@ -171,6 +172,14 @@ imagesFileInput.addEventListener('change', () => {
         delButton.classList.add('del-btn'); 
         delButton.innerHTML = '<i class="fa-solid fa-x"></i>'; 
 
+
+        // Create "Main Image" button 
+        let makeMainButton = document.createElement('button'); 
+        makeMainButton.type = 'button'; 
+        makeMainButton.classList.add('make-main-btn') ; 
+        makeMainButton.textContent = "تعيين كصورة رئيسية" 
+
+
         delButton.addEventListener('click', () => {
             // Remove Image Container From Preview Images Container
             previewImgsContainer.removeChild(imageContainer); 
@@ -194,6 +203,7 @@ imagesFileInput.addEventListener('change', () => {
         })
 
         imageContainerHeader.appendChild(delButton); 
+        imageContainerHeader.appendChild(makeMainButton); 
         
         //  Create New Image Element 
         const image = document.createElement('img')
@@ -212,9 +222,24 @@ imagesFileInput.addEventListener('change', () => {
 
         // Add Image To Container
         previewImgsContainer.appendChild(imageContainer); 
+
+        document.querySelectorAll('.image-container-header').forEach((img_header_container) => {
+            img_header_container.querySelector('.make-main-btn').addEventListener('click', () => {
+                document.querySelectorAll('.make-main-btn').forEach((btn) => { 
+                    btn.classList.remove('clicked') 
+                })
+
+                img_header_container.querySelector('.make-main-btn').classList.add('clicked') 
+
+            })
+        })
+        
     }
 
 }) ; 
+
+
+
 
 // Handle Video Uploader 
 videoFileInput.addEventListener('change', () => {
