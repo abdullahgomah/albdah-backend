@@ -1,6 +1,54 @@
 let latInput = document.querySelector('#lat-input'); 
 let lngInput = document.querySelector('#lng-input'); 
 
+function reverseGeocode(lat, lng) {
+    var geocoder = new google.maps.Geocoder();
+    var latLng = new google.maps.LatLng(lat, lng);
+
+    geocoder.geocode({ 'location': latLng }, function (results, status) {
+        if (status === 'OK') {
+            if (results[0]) {
+
+                var addressComponents = results[0].address_components;
+                var neighborhood, city;
+
+                let neighborhoodInput = document.querySelectorr('[name=neighborhood-input]')
+                let cityInput = document.querySelector('[name=city-input]'); 
+
+                neighborhood = results[0].address_components[1].long_name; 
+                city= results[0].address_components[2].long_name; 
+
+                neighborhoodInput.value = neighborhood; 
+                cityInput.value = city; 
+                
+
+
+        //         for (var i = 0; i < addressComponents.length; i++) {
+        //             var component = addressComponents[i];
+        //             if (component.types.includes('neighborhood')) {
+        //                 neighborhood = component.long_name;
+        //             }
+        //             if (component.types.includes('locality')) {
+        //                 city = component.long_name;
+        //             }
+        //         }
+
+        //         if (neighborhood && city) {
+        //             console.log("Neighborhood: " + neighborhood);
+        //             console.log("City: " + city);
+        //         } else {
+        //             console.log("Neighborhood or City not found.");
+        //         }
+        //     } else {
+        //         console.log("No results found");
+        //     }
+        // } else {
+        //     console.log("Geocoder failed due to: " + status);
+        }}
+    });
+}
+
+
 
 async function initMap() {
 
@@ -33,8 +81,11 @@ async function initMap() {
         const lng = position.lng(); // خطوط الطول
         latInput.value = lat ;
         lngInput.value = lng; 
-        // console.log(lat)
-        // console.log(lng)
+
+        console.log(lat) ;
+        console.log(lng) ; 
+        
+        reverseGeocode(lat, lng) 
     })
 
 
@@ -62,57 +113,6 @@ async function initMap() {
         }
     });
   
-    // const AdvMarker = new AdvancedMarkerElement ({
-    //     position: { lat: 24.7136, lng: 46.6753 }, 
-    //     map: map, 
-    //     content: priceTag 
-    // })
-
-
-
-    // cities.forEach((city) => {
-
-    //     const priceTag = document.createElement("div");
-
-    //     priceTag.className = "price-tag";
-    //     priceTag.textContent = "10 مليون"
-        
-    //     const marker = new AdvancedMarkerElement ({
-    //         map,
-    //         position: { lat: city[1], lng: city[2] },
-    //         content: priceTag, 
-    //         // icon: './house(1).png',
-    //     });
-
-
-    
-    //     marker.addListener('click', function () {
-    //         // alert(city[0]) 
-    //         infoCard.style.display = 'block'; 
-    //         infoCardH3.textContent = city[0]; 
-
-    //         mapOptions.style.display = 'none'; 
-            
-    //     });
-
-
-
-    // })
-
-
-    // document.querySelector("#btn_satellite").addEventListener('click', function() {
-    //     map.setMapTypeId('satellite')
-    // })
-
-
-    // document.querySelector("#btn_roadmap").addEventListener('click', function() {
-    //     map.setMapTypeId('roadmap')
-    // })
-
-    // document.querySelector("#btn_terrain").addEventListener('click', function() {
-    //     map.setMapTypeId('terrain')
-    // })
-
 
 }
 

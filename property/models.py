@@ -43,14 +43,14 @@ class ApartmentRent(models.Model):
     position = GeopositionField() 
     lat = models.CharField(max_length=200, null=True, blank=True) 
     lng = models.CharField(max_length=200, null=True, blank=True)  
-    # position = models.PointField() 
 
-    # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
-    # width = models.FloatField(verbose_name="العرض (متر)") 
-    # length = models.FloatField(verbose_name="الطول (متر)")
+
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار")
     exclusive = models.BooleanField(default=False, verbose_name='حصري') 
@@ -59,13 +59,10 @@ class ApartmentRent(models.Model):
     video = models.FileField(upload_to='rent/apartment/video', verbose_name="فيديو", null=True, blank=True)
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True)  
-    # rooms = models.IntegerField(default=0, verbose_name="الغرف") 
     rooms = models.CharField(max_length=10, verbose_name="الغرف", null=True, blank=True) 
 
-    # lounges = models.IntegerField(default=0, verbose_name="الصالات") 
     lounges = models.CharField(max_length=10, verbose_name="الصالات", null=True, blank=True) 
 
-    # bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
     bathroom = models.CharField(max_length=10, verbose_name="عدد دورات المياه", null=True, blank=True) 
     
 
@@ -110,6 +107,9 @@ class ApartmentRent(models.Model):
     def save(self, *args, **kwargs): 
         if not self.number: 
             self.number = generate()
+        
+        if not self.title: 
+            self.title = str(f"شقة في مدينة {self.city} في حي {self.neighborhood}")
         super(ApartmentRent, self).save(*args, **kwargs)
 
 class ApartmentRentImage(models.Model):

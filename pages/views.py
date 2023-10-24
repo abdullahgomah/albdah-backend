@@ -7,7 +7,7 @@ def home(request):
 
 
     ## get all ads 
-    apartments_rent = ApartmentRent.objects.all() 
+    apartments_rent = ApartmentRent.objects.all()[::-1]
     floors_rent = FloorRent.objects.all() 
     villas_rent = VillaRent.objects.all() 
     shops_rent = ShopRent.objects.all() 
