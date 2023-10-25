@@ -262,7 +262,7 @@ section.property_list .grid .item {
 
 section.property_list .grid .item .property__cover_img {
     height: 100%;
-    flex:3;
+    flex:2;
 }
 
 
@@ -370,6 +370,7 @@ footer .copyrights {
 
     section.property_list .grid .item {
         width: 100% !important;
+        height: 120px !important;
     }
 
 
