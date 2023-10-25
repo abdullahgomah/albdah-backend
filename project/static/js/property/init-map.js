@@ -12,16 +12,19 @@ function reverseGeocode(lat, lng) {
                 var addressComponents = results[0].address_components;
                 var neighborhood, city;
 
-                let neighborhoodInput = document.querySelectorr('[name=neighborhood-input]')
+                let neighborhoodInput = document.querySelector('[name=neighborhood-input]')
                 let cityInput = document.querySelector('[name=city-input]'); 
 
+                
                 neighborhood = results[0].address_components[1].long_name; 
                 city= results[0].address_components[2].long_name; 
 
                 neighborhoodInput.value = neighborhood; 
                 cityInput.value = city; 
-                
 
+                console.log(neighborhoodInput) ; 
+                console.log(cityInput); 
+                
 
         //         for (var i = 0; i < addressComponents.length; i++) {
         //             var component = addressComponents[i];

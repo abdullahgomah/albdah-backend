@@ -47,6 +47,12 @@ def add_apartment_rent(request):
         video = request.FILES.get('property__video')
         lat = request.POST.get('lat') 
         lng = request.POST.get('lng') 
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
+
+        print(neighborhood) 
+        print(city ) 
+
         # rooms = request.POST.get('room-input') 
         # if rooms == "" or rooms == 0 or rooms == None: 
         rooms = request.POST.get('extra-room-input') 
@@ -81,6 +87,7 @@ def add_apartment_rent(request):
             video = None 
         print(video) 
         images = request.FILES.getlist('property__imgs') 
+        images_status = request.POST.getlist('mainImage') 
         families = request.POST.get('families') 
         furnished = request.POST.get('furnished') 
         kitchen = request.POST.get('kitchen') 
@@ -123,7 +130,9 @@ def add_apartment_rent(request):
             description = description, 
             price= price, 
             space=space, 
-            video= video, 
+            video= video,
+            neighborhood= neighborhood, 
+            city = city, 
             advertiser_relation= advertiser_relation, 
             exclusive = exclusive, 
             rooms = rooms, 
@@ -150,11 +159,13 @@ def add_apartment_rent(request):
             private_enternace = features[13]
         )
 
-        for img in images: 
+        for i in range(len(images)): 
             ApartmentRentImage.objects.create(
                 ad = apartment, 
-                img = img
+                img = images[i] , 
+                main = images_status[i]
             ).save() 
+
 
 
         return redirect('/ad-uploaded/')
@@ -207,6 +218,9 @@ def add_floor_rent(request):
         video = request.FILES.get('property__video')
         lat = request.POST.get('lat') 
         lng = request.POST.get('lng') 
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
+
         # rooms = request.POST.get('room-input') 
         # if rooms == "" or rooms == 0 or rooms == None: 
         rooms = request.POST.get('extra-room-input') 
@@ -289,6 +303,8 @@ def add_floor_rent(request):
             rooms = rooms, 
             lounges = lounges, 
             bathroom = bathrooms, 
+            neighborhood = neighborhood, 
+            city=city, 
             floor = floor , 
             property_age = property_age, 
             rent_type = rent_type_input, 
@@ -365,6 +381,8 @@ def add_villa_rent(request):
         video = request.FILES.get('property__video')
         lat = request.POST.get('lat') 
         lng = request.POST.get('lng') 
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
         # rooms = request.POST.get('room-input') 
         # if rooms == "" or rooms == 0 or rooms == None: 
         rooms = request.POST.get('extra-room-input') 
@@ -453,6 +471,8 @@ def add_villa_rent(request):
             price= price, 
             space=space, 
             video= video, 
+            neighborhood = neighborhood, 
+            city = city, 
             advertiser_relation= advertiser_relation, 
             exclusive = exclusive, 
             rooms = rooms, 
@@ -542,7 +562,8 @@ def add_shop_rent(request):
         lng = request.POST.get('lng') 
 
         
-
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
         description = request.POST.get('property__description__input') 
         # rent_type_input = request.POST.get('rent_type_input') 
         try: 
@@ -596,6 +617,8 @@ def add_shop_rent(request):
             video= video, 
             advertiser_relation= advertiser_relation, 
             exclusive = exclusive, 
+            neighborhood = neighborhood, 
+            city = city,
             # rooms = rooms, 
             # lounges = lounges, 
             # bathroom = bathrooms, 
@@ -665,6 +688,9 @@ def add_rest_house_rent(request):
         video = request.FILES.get('property__video')
         lat = request.POST.get('lat') 
         lng = request.POST.get('lng') 
+
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
         # rooms = request.POST.get('room-input') 
         # if rooms == "" or rooms == 0 or rooms == None: 
         rooms = request.POST.get('extra-room-input') 
@@ -738,6 +764,8 @@ def add_rest_house_rent(request):
             price= price, 
             space=space, 
             video= video, 
+            neighborhood = neighborhood, 
+            city = city, 
             advertiser_relation= advertiser_relation, 
             exclusive = exclusive, 
             rooms = rooms, 
@@ -792,6 +820,9 @@ def add_building_rent(request):
         video = request.FILES.get('property__video')
         lat = request.POST.get('lat') 
         lng = request.POST.get('lng') 
+
+        neighborhood = request.POST.get('neighborhood-input') 
+        city= request.POST.get('city-input') 
         store_count = request.POST.get('stores-count-input') 
         rooms = request.POST.get('extra-room-input') 
         if rooms == None or rooms == "" or rooms == 0: 
@@ -851,6 +882,8 @@ def add_building_rent(request):
             rent_type = rent_type_input, 
             lat = lat, 
             lng=lng ,
+            neighborhood = neighborhood, 
+            city = city, 
             sotres_count = store_count, 
             furnished = features[0],
             water_exist = features[1],

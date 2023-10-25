@@ -188,7 +188,7 @@ section.property_type .btn {
     color: var(--primary-color); 
     background: #fff; 
     border: 1px solid #1e2957; 
-    box-shadow: 2px 4px 10px #1e295730;
+    /* box-shadow: 2px 4px 10px #1e295730; */
 }
 
 
@@ -239,7 +239,7 @@ section.property_list .grid .item {
 }
 
 .item .property__title a {
-    font-size: 20px;
+    font-size: 14px;
     text-decoration: none; 
     /* color: var(--primary-color); */
     color: black;
@@ -247,7 +247,8 @@ section.property_list .grid .item {
 
 .item .property__price {
     margin : 1rem 0;
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: 12px;
     font-weight: bold;
     color: var(--primary-color);
 }
@@ -273,6 +274,7 @@ section.property_list .grid .item .property__cover_img {
     max-width: 100%;
     object-fit: cover;
     object-position: center center;
+    float: left; 
 }
 
 
@@ -361,8 +363,13 @@ footer .copyrights {
     
     .item {
         /* height: 150px !important; */
-        height: fit-content !important;
+        /* height: fit-content !important; */
+        height: 120px !important;
         /* min-height: 100px !important; */
+    }
+
+    section.property_list .grid .item {
+        width: 100% !important;
     }
 
 

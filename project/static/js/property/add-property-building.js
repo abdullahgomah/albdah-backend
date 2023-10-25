@@ -148,6 +148,81 @@ propertyInfoNextPrev.querySelector('.btn-next').addEventListener('click', () => 
 }) 
 
 // Handle Images Uploader
+// imagesFileInput.addEventListener('change', () => {
+    
+//     // Remove All Images
+//     previewImgsContainer.innerHTML = ''; 
+
+//     const files = imagesFileInput.files; 
+
+//     const selectedFiles = Array.from(files);
+
+//     console.log(selectedFiles); 
+
+//     for (let i =0; i < files.length; i++ ) {
+        
+//         // Get the File 
+//         const file = files[i]; 
+
+//         // Create New Image Container 
+//         const imageContainer = document.createElement('div'); 
+//         imageContainer.classList.add('image-container'); 
+        
+//         // image container header 
+//         const imageContainerHeader = document.createElement('div'); 
+//         imageContainerHeader.classList.add('image-container-header'); 
+
+//         // create 'x' button 
+//         const delButton = document.createElement('div'); 
+//         delButton.classList.add('del-btn'); 
+//         delButton.innerHTML = '<i class="fa-solid fa-x"></i>'; 
+
+//         delButton.addEventListener('click', () => {
+//             // Remove Image Container From Preview Images Container
+//             previewImgsContainer.removeChild(imageContainer); 
+
+//             // Remove The Image From File List to Set new file list 
+//             // Remove the corresponding file from the selectedFiles array
+//             const index = selectedFiles.indexOf(file);
+//             if (index > -1) {
+//                 selectedFiles.splice(index, 1);
+//             }
+
+//             // Update the file input's files property with the modified selectedFiles array
+//             const remainingFileList = new DataTransfer() ; 
+//             selectedFiles.forEach((file) => {
+//                 remainingFileList.items.add(file); 
+//             }) 
+
+//             imagesFileInput.files = remainingFileList.files
+
+//             // console.log(imagesFileInput.files); 
+//         })
+
+//         imageContainerHeader.appendChild(delButton); 
+        
+//         //  Create New Image Element 
+//         const image = document.createElement('img')
+//         image.classList.add('preview_img'); 
+
+
+//         imageContainer.appendChild(imageContainerHeader)
+//         imageContainer.appendChild(image)
+
+//         // Read The URL of Image 
+//         const reader = new FileReader(); 
+//         reader.onload = function () {
+//             image.src = reader.result 
+//         }
+//         reader.readAsDataURL(file) 
+
+//         // Add Image To Container
+//         previewImgsContainer.appendChild(imageContainer); 
+//     }
+
+// }) ; 
+
+// Handle Images Uploader
 imagesFileInput.addEventListener('change', () => {
     
     // Remove All Images
@@ -172,10 +247,23 @@ imagesFileInput.addEventListener('change', () => {
         const imageContainerHeader = document.createElement('div'); 
         imageContainerHeader.classList.add('image-container-header'); 
 
+        // hidden input element 
+        let mainHiddenInput = document.createElement('input');
+        mainHiddenInput.type = 'hidden'; 
+        mainHiddenInput.name = 'mainImage';
+
         // create 'x' button 
         const delButton = document.createElement('div'); 
         delButton.classList.add('del-btn'); 
         delButton.innerHTML = '<i class="fa-solid fa-x"></i>'; 
+
+
+        // Create "Main Image" button 
+        let makeMainButton = document.createElement('button'); 
+        makeMainButton.type = 'button'; 
+        makeMainButton.classList.add('make-main-btn') ; 
+        makeMainButton.textContent = "تعيين كصورة رئيسية" 
+
 
         delButton.addEventListener('click', () => {
             // Remove Image Container From Preview Images Container
@@ -200,6 +288,8 @@ imagesFileInput.addEventListener('change', () => {
         })
 
         imageContainerHeader.appendChild(delButton); 
+        imageContainerHeader.appendChild(makeMainButton); 
+        imageContainerHeader.appendChild(mainHiddenInput); 
         
         //  Create New Image Element 
         const image = document.createElement('img')
@@ -218,9 +308,26 @@ imagesFileInput.addEventListener('change', () => {
 
         // Add Image To Container
         previewImgsContainer.appendChild(imageContainer); 
+
+        document.querySelectorAll('.image-container-header').forEach((img_header_container) => {
+            img_header_container.querySelector('.make-main-btn').addEventListener('click', () => {
+                document.querySelectorAll('.make-main-btn').forEach((btn) => { 
+                    btn.classList.remove('clicked') 
+                    btn.parentElement.querySelector('[name=mainImage]').value = 0;
+                    // console.log(btn.parentElement.querySelector('[name=mainImage]')) ; 
+                    
+                })
+
+                img_header_container.querySelector('.make-main-btn').classList.add('clicked') 
+                img_header_container.querySelector('.make-main-btn').parentElement.querySelector('[name=mainImage]').value = 1; 
+
+            })
+        })
+        
     }
 
 }) ; 
+
 
 // Handle Video Uploader 
 videoFileInput.addEventListener('change', () => {

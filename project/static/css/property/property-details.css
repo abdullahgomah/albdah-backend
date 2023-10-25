@@ -47,7 +47,6 @@ body {
     line-height: 60px;
     border-radius: 5px ;
     border: 1px solid #1e2957; 
-    background: #f9f9f9;
 }
 
 .property__actions ul li:hover {
@@ -155,6 +154,37 @@ body {
     height: 100%;
     object-fit: cover;
   }
+
+
+
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 200000;
+    text-align: center;
+}
+
+/* Style for the close button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+.popup-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 10%;
+}
 
 
 

@@ -167,6 +167,11 @@ imagesFileInput.addEventListener('change', () => {
         const imageContainerHeader = document.createElement('div'); 
         imageContainerHeader.classList.add('image-container-header'); 
 
+        // hidden input element 
+        let mainHiddenInput = document.createElement('input');
+        mainHiddenInput.type = 'hidden'; 
+        mainHiddenInput.name = 'mainImage';
+
         // create 'x' button 
         const delButton = document.createElement('div'); 
         delButton.classList.add('del-btn'); 
@@ -204,6 +209,7 @@ imagesFileInput.addEventListener('change', () => {
 
         imageContainerHeader.appendChild(delButton); 
         imageContainerHeader.appendChild(makeMainButton); 
+        imageContainerHeader.appendChild(mainHiddenInput); 
         
         //  Create New Image Element 
         const image = document.createElement('img')
@@ -227,9 +233,13 @@ imagesFileInput.addEventListener('change', () => {
             img_header_container.querySelector('.make-main-btn').addEventListener('click', () => {
                 document.querySelectorAll('.make-main-btn').forEach((btn) => { 
                     btn.classList.remove('clicked') 
+                    btn.parentElement.querySelector('[name=mainImage]').value = 0;
+                    // console.log(btn.parentElement.querySelector('[name=mainImage]')) ; 
+                    
                 })
 
                 img_header_container.querySelector('.make-main-btn').classList.add('clicked') 
+                img_header_container.querySelector('.make-main-btn').parentElement.querySelector('[name=mainImage]').value = 1; 
 
             })
         })

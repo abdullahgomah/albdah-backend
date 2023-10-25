@@ -137,6 +137,10 @@ class FloorRent(models.Model):
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
 
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
     space = models.IntegerField(verbose_name="المساحة (متر مربع)", default=0) 
     width = models.FloatField(verbose_name="العرض (متر)", blank=True, null=True) 
@@ -226,6 +230,10 @@ class VillaRent(models.Model):
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES) 
+
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
 
     price = models.IntegerField(verbose_name="السعر (ريال سعودي)", default=0) 
@@ -326,6 +334,10 @@ class ShopRent(models.Model):
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
 
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
     rent_type = models.CharField(max_length=50, choices=RENT_TYPE_CHOICES, verbose_name="نوع الإيجار", null=True, blank=True) 
 
     advertiser_relation = models.CharField(max_length=50, verbose_name="علاقة المعلن بالعقار", null=True, blank=True)
@@ -388,6 +400,10 @@ class RestHouseRent(models.Model):
     lat = models.CharField(max_length=200, null=True, blank=True) 
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     property_age = models.CharField(max_length=10, default=0, verbose_name="عمر العقار", null=True, blank=True)
     lounges = models.CharField(max_length=10, default=0, verbose_name="الصالات", null=True, blank=True) 
@@ -460,6 +476,10 @@ class CommercialOfficeRent(models.Model):
     lat = models.CharField(max_length=200, null=True, blank=True) 
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
 
     street_width = models.IntegerField(default=0, verbose_name="عرض الشارع")
     floor = models.CharField(max_length=10, default=False, verbose_name="الدور", null=True, blank=True)
@@ -518,6 +538,13 @@ class LandRent(models.Model):
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True) 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
     
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
     # purpose = models.ForeignKey(Purpose, on_delete=models.SET_NULL, null=True, blank=True) 
     purpose = models.CharField(max_length=100, verbose_name="الغرض", null=True, blank=True)
     description = models.TextField(verbose_name="وصف العقار", default="  ")
@@ -572,6 +599,10 @@ class BuildingRent(models.Model):
     lat = models.CharField(max_length=200, null=True, blank=True) 
     lng = models.CharField(max_length=200, null=True, blank=True)  
     
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
 
     interface = models.CharField(max_length=100, verbose_name="الواجهة", choices=INTERFACE_CHOICES, null=True, blank=True)
     sotres_count = models.CharField(default=0, verbose_name="عدد المحلات", max_length=10, null=True, blank=True)
@@ -630,6 +661,12 @@ class WarehouseRent(models.Model):
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار") 
     description = models.TextField(verbose_name="وصف العقار", default="   ")
 
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
+
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
 
     water_exist = models.BooleanField(default=False, verbose_name="توفر الماء")
     power_exist = models.BooleanField(default=False, verbose_name="توفر الكهرباء")
@@ -666,6 +703,12 @@ class FurnishedApartmentRent(models.Model):
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
     
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
+
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
 
@@ -724,6 +767,8 @@ class ChaletRent(models.Model):
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
     street_width = models.FloatField(verbose_name="عرض الشارع", null=True, blank=True) 
+    lat = models.CharField(max_length=200, null=True, blank=True) 
+    lng = models.CharField(max_length=200, null=True, blank=True)  
 
     property_age = models.IntegerField(default=0, verbose_name="عمر العقار")    
 
@@ -731,6 +776,10 @@ class ChaletRent(models.Model):
     rooms = models.IntegerField(default=0, verbose_name="الغرف") 
 
     bathroom = models.IntegerField(default=0, verbose_name="عدد دورات المياه") 
+
+    neighborhood = models.CharField(max_length=250, verbose_name="الحي", null=True, blank=True) 
+    city = models.CharField(max_length=250, verbose_name="المدينة", null=True, blank=True) 
+    title = models.CharField(max_length=255, verbose_name="عنوان الإعلان", null=True, blank=True) 
 
 
     description = models.TextField(verbose_name="وصف العقار", default="   ")

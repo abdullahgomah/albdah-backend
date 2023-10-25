@@ -73,7 +73,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # LOGIN / LOGOUT URLS 
 LOGIN_URL = '/accounts/login'
-
+# AUTH_USER_MODEL = 'users.CustomUser'
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL =True
