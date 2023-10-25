@@ -39,6 +39,7 @@ def generate():
 #### شقة 
 
 class ApartmentRent(models.Model): 
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     lat = models.CharField(max_length=200, null=True, blank=True) 
@@ -129,6 +130,7 @@ class ApartmentRentImage(models.Model):
 ####### دور 
 
 class FloorRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
 
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
@@ -222,6 +224,8 @@ class FloorRentImage(models.Model):
 ##### فيلا 
 
 class VillaRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -328,6 +332,8 @@ class VillaRentImage(models.Model):
 ####### محل
 
 class ShopRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     lat = models.CharField(max_length=200, null=True, blank=True) 
@@ -393,6 +399,8 @@ class ShopRentImage(models.Model):
 ####### استراحة
 
 class RestHouseRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -469,6 +477,8 @@ class RestHouseRentImage(models.Model):
 ######## مكتب تجاري
 
 class CommercialOfficeRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -531,6 +541,8 @@ class Purpose(models.Model):
 
 #######  أرض 
 class LandRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -583,6 +595,8 @@ class LandRentImage(models.Model):
 
 ##### عمارة
 class BuildingRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -652,6 +666,8 @@ class BuildingRentImage(models.Model):
 
 ### مستودع
 class WarehouseRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -699,6 +715,8 @@ class WarehouseRentImage(models.Model):
 ## شقة مفروشة
 
 class FurnishedApartmentRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
@@ -762,6 +780,8 @@ class FurnishedApartmentRentImage(models.Model):
 ### شاليه
 
 class ChaletRent(models.Model):
+    sale = models.BooleanField(verbose_name="للبيع", default=False, null=True, blank=True )
+
     number = models.CharField(max_length=20, verbose_name="رقم الإعلان", null=True, blank=True)  
     position = GeopositionField() 
     # title = models.CharField(max_length=200, verbose_name="عنوان الإعلان", null=True, blank=True) 
